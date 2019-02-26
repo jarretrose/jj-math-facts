@@ -1,8 +1,9 @@
 
 /* OVERARCHING BODY STYLING */
+
 html, body {
   background-color: #282c34;
-  color: white;
+  color: whitesmoke;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,14 +12,28 @@ html, body {
 
 /* HEADER STYLING */
 header {
+  display: flex;
   background: linear-gradient(to right, lightyellow, lightblue);
   height: 15vh;
   color: blue;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.header {
+  margin: auto;
+}
+
+.main-nav {
+  margin: auto;
+}
+
+.main-nav ul {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  list-style: none;
+}
+
+.main-nav ul li {
+  padding-left: 20px;
 }
 
 /* FOOTER STYLING */
@@ -39,7 +54,7 @@ footer   {
   height: 75vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
   flex-direction: column;
   flex-wrap: wrap;
 }
@@ -47,10 +62,12 @@ footer   {
 /* MATH CUBE IMAGE */
 .wrap {
 	perspective: 800px;
-  perspective-origin: 50% 100px;
+  perspective-origin: 50% 200px;
 }
 
 .math-cube {
+  margin-top: 100px;
+  display: flex;
 	position: relative;
 	width: 200px;
   transform-style: preserve-3d;
@@ -103,3 +120,8 @@ footer   {
 .math-cube {
 	animation: spin 10s infinite linear;
 }
+
+/* BASIC MOBILE RESPONSIVE */
+/* @media screen and (max-width: 768px) {
+
+} */
