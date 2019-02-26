@@ -23,6 +23,7 @@ header {
   margin: auto;
 }
 
+/* NAVIGATION */
 .main-nav {
   margin: auto;
 }
@@ -36,7 +37,7 @@ header {
   padding-left: 20px;
 }
 
-/* FOOTER STYLING */
+/* FOOTER  */
 footer   {
   background: linear-gradient(to right, lightyellow, lightblue);
   color: blue;
@@ -49,7 +50,7 @@ footer   {
   font-size: 12px;
 }
 
-/* OVERARCHING MAIN PAGE STYLING */
+/* MAIN CONTENT STYLING */
 .main-page {
   height: 75vh;
   display: flex;
