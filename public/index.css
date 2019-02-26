@@ -1,0 +1,105 @@
+
+/* OVERARCHING BODY STYLING */
+html, body {
+  background-color: #282c34;
+  color: white;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* HEADER STYLING */
+header {
+  background: linear-gradient(to right, lightyellow, lightblue);
+  height: 15vh;
+  color: blue;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* FOOTER STYLING */
+footer   {
+  background: linear-gradient(to right, lightyellow, lightblue);
+  color: blue;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+/* OVERARCHING MAIN PAGE STYLING */
+.main-page {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* MATH CUBE IMAGE */
+.wrap {
+	perspective: 800px;
+  perspective-origin: 50% 100px;
+}
+
+.math-cube {
+	position: relative;
+	width: 200px;
+  transform-style: preserve-3d;
+}
+
+.math-cube div {
+	position: absolute;
+	width: 200px;
+  height: 200px;
+}
+
+.face {
+  display: flex;
+  outline: 3px solid blue;
+  background: linear-gradient(to left, lightyellow, lightblue);
+  color: blue;
+  font-size: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  transform: translateZ(-100px) rotateY(180deg);
+}
+.right {
+	transform: rotateY(-270deg) translateX(100px);
+	transform-origin: top right;
+}
+.left {
+	transform: rotateY(270deg) translateX(-100px);
+	transform-origin: center left;
+}
+.top {
+	transform: rotateX(-90deg) translateY(-100px);
+	transform-origin: top center;
+}
+.bottom {
+	transform: rotateX(90deg) translateY(100px);
+	transform-origin: bottom center;
+}
+.front {
+	transform: translateZ(100px);
+}
+
+@keyframes spin {
+	from { transform: rotateY(360deg); }
+	to { transform: rotateY(0); }
+}
+
+.math-cube {
+	animation: spin 10s infinite linear;
+}

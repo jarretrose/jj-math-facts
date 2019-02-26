@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MathCube from './MathCube';
+import Multiplication from './Multiplication';
+import Division from './Division';
+import Addition from './Addition';
+import Subtraction from './Subtraction';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <div className='page-wrapper'>
+        <header>
+          <h1>JJ's Math Facts</h1>
+          <p>Choose a learning exercise to get started.</p>
         </header>
+
+        <main className='main-page'>
+          <MathCube />
+          <Addition />
+          <Subtraction />
+          <Multiplication />
+          <Division />
+        </main>
+
+        <footer>
+          <p>A simple app for practicing math facts.</p>
+        </footer>
+
       </div>
     );
   }
