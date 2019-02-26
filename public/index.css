@@ -1,9 +1,18 @@
 
 /* OVERARCHING BODY STYLING */
 
-html, body {
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
   background-color: #282c34;
   color: whitesmoke;
+  width: 100%;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -13,28 +22,26 @@ html, body {
 /* HEADER STYLING */
 header {
   display: flex;
+  margin: auto;
   background: linear-gradient(to right, lightyellow, lightblue);
-  height: 15vh;
+  height: 10vh;
   color: blue;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-.header {
+.header-title {
+  display: flex;
   margin: auto;
 }
 
 /* NAVIGATION */
-.main-nav {
+.header-nav {
   margin: auto;
 }
 
-.main-nav ul {
+.header-nav ul {
   display: flex;
   list-style: none;
-}
-
-.main-nav ul li {
-  padding-left: 20px;
 }
 
 /* FOOTER  */
@@ -47,12 +54,11 @@ footer   {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 12px;
 }
 
 /* MAIN CONTENT STYLING */
 .main-page {
-  height: 75vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: top;
@@ -61,7 +67,7 @@ footer   {
 }
 
 /* MATH CUBE IMAGE */
-.wrap {
+.cube-wrap {
 	perspective: 800px;
   perspective-origin: 50% 200px;
 }
@@ -121,8 +127,3 @@ footer   {
 .math-cube {
 	animation: spin 10s infinite linear;
 }
-
-/* BASIC MOBILE RESPONSIVE */
-/* @media screen and (max-width: 768px) {
-
-} */

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class MathCube extends Component {
   render() {
     return (
-      <div className="wrap">
+      <div className="cube-wrap">
         <div className="math-cube">
           <div className="face front">
             <i className="fas fa-plus"></i>

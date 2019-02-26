@@ -1,4 +1,7 @@
 /* MOBILE FIRST STYLESHEET */
+html {
+  background: blue;
+}
 
 /* HEADER */
 
@@ -7,3 +10,11 @@
 /* MAIN CONTENT */
 
 /* FOOTER */
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 768px) {
+  html {
+    background: green;
+  }
+
+}
