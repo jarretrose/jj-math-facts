@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-class MathCube extends Component {
-  render() {
+const MathCube = () => {
     return (
       <div className="cube-wrap">
         <div className="math-cube">
@@ -22,7 +21,6 @@ class MathCube extends Component {
         </div>
       </div>
     )
-  }
 }
 
 export default MathCube;
