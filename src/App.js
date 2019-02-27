@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import MathCube from './MathCube';
 import See from './See'
 import Solve from './Solve'
@@ -9,21 +9,15 @@ class App extends Component {
     return (
       <div>
 
-        {/* HEADER */}
-        <header className='header'>
-          <div className='header-title'>
-            <h1>JJ's Math Facts</h1>
-          </div>
-        </header>
-
-          {/* NAVIGATION */}
-          <nav className='navbar'>
-            <ul className='nav-links'>
-              <li className='nav-item'><Link to='/'>Home</Link></li>
-              <li className='nav-item'><Link to='/see'>See It!</Link></li>
-              <li className='nav-item'><Link to='/solve'>Solve it!</Link></li>
-            </ul>
+        {/* HEADER & NAVIGATION */}
+        <header className='nav-header'>
+          <h1 className='header-title'>JJ's Math Facts</h1>
+          <nav className='nav-list'>
+            <Link className='nav-link' to='/'>Home</Link>
+            <Link className='nav-link' to='/see'>See It!</Link>
+            <Link className='nav-link' to='/solve'>Solve it!</Link>
           </nav>
+        </header>
 
         {/* MAIN PAGE */}
         <main className='main-page'>
