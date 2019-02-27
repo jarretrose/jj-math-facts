@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Link } from 'react-router-dom'
 import MathCube from './MathCube';
 import See from './See'
@@ -7,7 +7,7 @@ import Solve from './Solve'
 class App extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
 
         {/* HEADER & NAVIGATION */}
         <header className='nav-header'>
@@ -20,18 +20,20 @@ class App extends Component {
         </header>
 
         {/* MAIN PAGE */}
-        <main className='main-page'>
+        <section className='home-page'>
           <Route exact path='/' component={MathCube} />
+        </section>
+        <section className='content-page'>
           <Route path='/see' component={See} />
           <Route path='/solve' component={Solve} />
-        </main>
+        </section>
 
         {/* FOOTER */}
         <footer className='main-footer'>
           <p>A simple app for practicing math facts.</p>
         </footer>
 
-      </div>
+      </Fragment>
     );
   }
 }
