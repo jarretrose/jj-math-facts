@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import MathCube from './MathCube';
 import See from './See'
 import Solve from './Solve'
+import About from './About'
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Link className='nav-link' to='/'>Home</Link>
             <Link className='nav-link' to='/see'>See It!</Link>
             <Link className='nav-link' to='/solve'>Solve it!</Link>
+            <Link className='nav-link' to='/about'>About!</Link>
           </nav>
         </header>
 
@@ -26,6 +28,7 @@ class App extends Component {
         <section className='content-page'>
           <Route path='/see' component={See} />
           <Route path='/solve' component={Solve} />
+          <Route path='/about' component={About} />
         </section>
 
         {/* FOOTER */}
