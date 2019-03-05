@@ -13,8 +13,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #263238;
-  color: whitesmoke;
+  background-color: lightblue;
+  color: black;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +24,8 @@ body {
 /* HEADER STYLING */
 .nav-header {
   text-align: center;
-  background: linear-gradient(to right, #70ff56, #00ca00);
+  background: linear-gradient(to bottom, white, lightblue);
+  /* background: radial-gradient(white, lightblue); */
   width: 100%;
   color: blue;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
@@ -47,14 +48,14 @@ body {
 
 /* FOOTER  */
 footer {
-  background: linear-gradient(to right, #70ff56, #00ca00);
+  background: linear-gradient(to top, white, lightblue);
+  /* background: radial-gradient(white, lightblue); */
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
   color: blue;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 footer p {
@@ -94,7 +95,8 @@ footer p {
 .face {
   display: flex;
   outline: 3px solid blue;
-  background: radial-gradient(#70ff56, #00ca00);
+  /* background: radial-gradient(#70ff56, #00ca00); */
+  background: radial-gradient(white, lightblue);
   color: blue;
   font-size: 100px;
   align-items: center;
@@ -142,7 +144,7 @@ footer p {
 }
 
 button {
-  background-color: #00ca00;
+  background-color: cyan;
   min-width: 110px;
   padding: 4px 0;
   margin: 10px 4px;

@@ -2,8 +2,16 @@ import React, { Component, Fragment } from 'react'
 import SeeWorkSpace from './SeeWorkSpace';
 
 class See extends Component {
-  
-  handleClick = (event) => { console.log(event.target.value) }
+  constructor() {
+    super()
+    this.state = {
+      category: ''
+    }
+  }
+
+  handleClick = (event) => {
+    this.setState({category: event.target.value})
+  }
 
   render() {
     const { handleClick } = this
@@ -20,7 +28,7 @@ class See extends Component {
         </section>
 
         <section className='see-work'>
-          <SeeWorkSpace />
+          <SeeWorkSpace category={this.state.category}/>
         </section>
       </Fragment>
     )
