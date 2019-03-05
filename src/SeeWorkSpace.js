@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import Card from './Card'
 
 class SeeWorkSpace extends Component {
 
@@ -7,8 +8,9 @@ class SeeWorkSpace extends Component {
     console.log(category)
     return (
       <Fragment>
-        <section className='see-work-space'>
+        <section className='work-space'>
           <h1>{category.toUpperCase()}</h1>
+          <Card />
         </section>
       </Fragment>
     )

@@ -26,8 +26,16 @@ quotient (the result or answer)
 */
 
 class Solve extends Component {
-  
-  handleClick = (event) => { console.log(event.target.value) }
+  constructor() {
+    super()
+    this.state = {
+      category: 'Please Choose A Category'
+    }
+  }
+
+  handleClick = (event) => {
+    this.setState({category: event.target.value})
+  }
 
   render() {
     const { handleClick } = this
@@ -36,7 +44,6 @@ class Solve extends Component {
       <Fragment>
         <section className='solve-main'>
           <h1>Solve It!</h1>
-          <p>Please choose a category:</p>
           <button onClick={(e) => handleClick(e)} value='addition'>Addition</button>
           <button onClick={(e) => handleClick(e)} value='subtraction'>Subtraction</button>
           <button onClick={(e) => handleClick(e)} value='multiplication'>Multiplication</button>
@@ -44,7 +51,7 @@ class Solve extends Component {
         </section>
 
         <section className='solve-work'>
-          <SolveWorkSpace />
+          <SolveWorkSpace category={this.state.category}/>
         </section>
       </Fragment>
     )

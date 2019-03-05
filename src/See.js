@@ -5,7 +5,7 @@ class See extends Component {
   constructor() {
     super()
     this.state = {
-      category: ''
+      category: 'Please Choose A Category'
     }
   }
 
@@ -20,7 +20,6 @@ class See extends Component {
       <Fragment>
         <section className='see-main'>
           <h1>See It!</h1>
-          <p>Please choose a category:</p>
           <button onClick={(e) => handleClick(e)} value='addition'>Addition</button>
           <button onClick={(e) => handleClick(e)} value='subtraction'>Subtraction</button>
           <button onClick={(e) => handleClick(e)} value='multiplication'>Multiplication</button>
