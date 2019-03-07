@@ -16,7 +16,6 @@ class App extends Component {
         <header className='nav-header'>
           <h1 className='header-title'>JJ's Math Facts</h1>
           <nav>
-
             <NavLink to='/'>
               <button className='button-nav'>Home</button>
             </NavLink>
@@ -47,7 +46,7 @@ class App extends Component {
         {/* FOOTER */}
         <footer className='main-footer'>
           <p>A simple app for practicing math facts.</p>
-          <p>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a></p>
+          <p id='credit'>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a></p>
         </footer>
 
       </Fragment>
