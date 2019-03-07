@@ -1,31 +1,44 @@
 import React, { Component, Fragment } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
 import MathCube from './MathCube';
 import See from './See'
 import Solve from './Solve'
 import About from './About'
 
 class App extends Component {
+
   render() {
+
     return (
       <Fragment>
 
         {/* HEADER & NAVIGATION */}
         <header className='nav-header'>
           <h1 className='header-title'>JJ's Math Facts</h1>
-          <nav className='nav-list'>
-            <Link className='nav-link' to='/'><button className='button-nav'>Home</button></Link>
-            <Link className='nav-link' to='/see'><button className='button-nav'>See It!</button></Link>
-            <Link className='nav-link' to='/solve'><button className='button-nav'>Solve It!</button></Link>
-            <Link className='nav-link' to='/about'><button className='button-nav'>About</button></Link>
+          <nav>
+
+            <NavLink to='/mathcube'>
+              <button className='button-nav'>Home</button>
+            </NavLink>
+
+            <NavLink to='/see'>
+              <button className='button-nav'>See It!</button>
+            </NavLink>
+
+            <NavLink to='/solve'>
+              <button className='button-nav'>Solve It!</button>
+            </NavLink>
+
+            <NavLink to='/about'>
+              <button className='button-nav'>About</button>
+            </NavLink>
+
           </nav>
         </header>
 
         {/* MAIN PAGE */}
         <section className='home-page'>
-          <Route exact path='/' component={MathCube} />
-        </section>
-        <section className='content-page'>
+          <Route exact path='/mathcube' component={MathCube} />
           <Route path='/see' component={See} />
           <Route path='/solve' component={Solve} />
           <Route path='/about' component={About} />

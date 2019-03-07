@@ -35,17 +35,6 @@ body {
   padding: 14px 16px;
 }
 
-.nav-list {
-  display: inline-block;
-  padding: 10px 10px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: black;
-  padding: 0 16px;
-}
-
 /* FOOTER  */
 footer {
   background: linear-gradient(to top, white, lightblue);
@@ -151,13 +140,18 @@ footer a {
   border: 2px solid darkblue;
   background-color: deepskyblue;
   min-width: 110px;
-  padding: 4px 0;
+  padding: 4px 10px;
   margin: 10px 4px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.button-nav:active {
+  transform: translateY(5px);
+  filter: saturate(150%);
 }
 
 .button-nav:focus {
@@ -176,6 +170,11 @@ footer a {
   font-size: 16px;
   margin: 10px 10px;
   border-radius: 50%;
+}
+
+.button-math:active {
+  transform: translateY(5px);
+  filter: saturate(150%);
 }
 
 .button-math:focus {

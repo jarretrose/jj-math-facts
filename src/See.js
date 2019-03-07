@@ -20,10 +20,10 @@ class See extends Component {
       <Fragment>
         <section className='see-main'>
           <h1>See It!</h1>
-          <button className='button-math' onClick={(e) => handleClick('addition')}><i className="fas fa-plus"></i></button>
-          <button className='button-math' onClick={(e) => handleClick('subtraction')}><i className="fas fa-minus"></i></button>
-          <button className='button-math' onClick={(e) => handleClick('multiplication')}><i className="fas fa-times"></i></button>
-          <button className='button-math' onClick={(e) => handleClick('division')}><i className="fas fa-divide"></i></button>
+          <button className='button-math' onClick={() => handleClick('addition')}><i className="fas fa-plus"></i></button>
+          <button className='button-math' onClick={() => handleClick('subtraction')}><i className="fas fa-minus"></i></button>
+          <button className='button-math' onClick={() => handleClick('multiplication')}><i className="fas fa-times"></i></button>
+          <button className='button-math' onClick={() => handleClick('division')}><i className="fas fa-divide"></i></button>
         </section>
 
         <section className='see-work'>
