@@ -88,7 +88,6 @@ footer a {
 .face {
   display: flex;
   outline: 3px solid darkblue;
-  /* background: radial-gradient(#70ff56, #00ca00); */
   background: radial-gradient(white, lightblue);
   color: darkblue;
   font-size: 100px;
@@ -119,13 +118,13 @@ footer a {
 	transform: translateZ(100px);
 }
 
+.math-cube {
+	animation: spin 10s infinite linear;
+}
+
 @keyframes spin {
 	from { transform: rotateY(360deg); }
 	to { transform: rotateY(0); }
-}
-
-.math-cube {
-	animation: spin 10s infinite linear;
 }
 
 /* COMPONENT STYLING */
