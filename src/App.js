@@ -17,7 +17,7 @@ class App extends Component {
           <h1 className='header-title'>JJ's Math Facts</h1>
           <nav>
 
-            <NavLink to='/mathcube'>
+            <NavLink to='/'>
               <button className='button-nav'>Home</button>
             </NavLink>
 
@@ -38,7 +38,7 @@ class App extends Component {
 
         {/* MAIN PAGE */}
         <section className='home-page'>
-          <Route exact path='/mathcube' component={MathCube} />
+          <Route exact path='/' component={MathCube} />
           <Route path='/see' component={See} />
           <Route path='/solve' component={Solve} />
           <Route path='/about' component={About} />
