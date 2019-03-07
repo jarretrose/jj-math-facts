@@ -33,6 +33,30 @@ body {
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
+.button-nav {
+  border: 2px solid darkblue;
+  background-color: deepskyblue;
+  min-width: 110px;
+  padding: 4px 10px;
+  margin: 10px 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-nav:active {
+  transform: translateY(5px);
+  filter: saturate(150%);
+  outline: none;
+}
+
+.selected-btn {
+  background-color: yellow;
+  outline: none;
+}
+
 /* FOOTER  */
 footer {
   background: linear-gradient(to top, white, lightblue);
@@ -132,29 +156,6 @@ footer a {
   text-align: center;
 }
 
-.button-nav {
-  border: 2px solid darkblue;
-  background-color: deepskyblue;
-  min-width: 110px;
-  padding: 4px 10px;
-  margin: 10px 4px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button-nav:active {
-  transform: translateY(5px);
-  filter: saturate(150%);
-}
-
-.button-nav:focus {
-  background-color: yellow;
-  outline: none;
-}
-
 .button-math {
   border: 2px solid darkblue;
   background-color: deepskyblue;
@@ -166,14 +167,16 @@ footer a {
   font-size: 16px;
   margin: 10px 10px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .button-math:active {
   transform: translateY(5px);
   filter: saturate(150%);
+  outline: none;
 }
 
-.button-math:focus {
+.selected-math {
   background-color: yellow;
   outline: none;
 }

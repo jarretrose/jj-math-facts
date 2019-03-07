@@ -7,6 +7,18 @@ import About from './About'
 
 class App extends Component {
 
+  handleClick = (navButton) => {
+    let homeStyle = document.getElementById('home-nav-button').classList
+    let seeStyle = document.getElementById('see-nav-button').classList
+    let solveStyle = document.getElementById('solve-nav-button').classList
+    let aboutStyle = document.getElementById('about-nav-button').classList
+
+    navButton === 'home' ? homeStyle.add('selected-btn') : homeStyle.remove('selected-btn')
+    navButton === 'see' ? seeStyle.add('selected-btn') : seeStyle.remove('selected-btn')
+    navButton === 'solve' ? solveStyle.add('selected-btn') : solveStyle.remove('selected-btn')
+    navButton === 'about' ? aboutStyle.add('selected-btn') : aboutStyle.remove('selected-btn')
+  }
+
   render() {
 
     return (
@@ -17,19 +29,19 @@ class App extends Component {
           <h1 className='header-title'>JJ's Math Facts</h1>
           <nav>
             <NavLink to='/'>
-              <button className='button-nav'>Home</button>
+              <button className='button-nav' id='home-nav-button' onClick={() => this.handleClick('home')}>Home</button>
             </NavLink>
 
             <NavLink to='/see'>
-              <button className='button-nav'>See It!</button>
+              <button className='button-nav' id='see-nav-button' onClick={() => this.handleClick('see')}>See It!</button>
             </NavLink>
 
             <NavLink to='/solve'>
-              <button className='button-nav'>Solve It!</button>
+              <button className='button-nav' id='solve-nav-button' onClick={() => this.handleClick('solve')}>Solve It!</button>
             </NavLink>
 
             <NavLink to='/about'>
-              <button className='button-nav'>About</button>
+              <button className='button-nav' id='about-nav-button' onClick={() => this.handleClick('about')}>About</button>
             </NavLink>
 
           </nav>
