@@ -29,12 +29,12 @@ class Solve extends Component {
   constructor() {
     super()
     this.state = {
-      category: 'Please Choose A Category'
+      selectedCategory: 'Please Choose A Category'
     }
   }
 
-  handleClick = (event) => {
-    this.setState({category: event.target.value})
+  handleClick = (category) => {
+    this.setState({selectedCategory: category})
   }
 
   render() {
@@ -44,14 +44,14 @@ class Solve extends Component {
       <Fragment>
         <section className='solve-main'>
           <h1>Solve It!</h1>
-          <button onClick={(e) => handleClick(e)} value='addition'>Addition</button>
-          <button onClick={(e) => handleClick(e)} value='subtraction'>Subtraction</button>
-          <button onClick={(e) => handleClick(e)} value='multiplication'>Multiplication</button>
-          <button onClick={(e) => handleClick(e)} value='division'>Division</button>
+          <button className='button-math' onClick={(e) => handleClick('addition')}><i className="fas fa-plus"></i></button>
+          <button className='button-math' onClick={(e) => handleClick('subtraction')}><i className="fas fa-minus"></i></button>
+          <button className='button-math' onClick={(e) => handleClick('multiplication')}><i className="fas fa-times"></i></button>
+          <button className='button-math' onClick={(e) => handleClick('division')}><i className="fas fa-divide"></i></button>
         </section>
 
         <section className='solve-work'>
-          <SolveWorkSpace category={this.state.category}/>
+          <SolveWorkSpace category={this.state.selectedCategory}/>
         </section>
       </Fragment>
     )

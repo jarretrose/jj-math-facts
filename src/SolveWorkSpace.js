@@ -5,7 +5,7 @@ class SolveWorkSpace extends Component {
 
   render() {
     const { category } = this.props
-    console.log(category)
+
     return (
       <Fragment>
         <section className='work-space'>

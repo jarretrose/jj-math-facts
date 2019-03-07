@@ -14,10 +14,10 @@ class App extends Component {
         <header className='nav-header'>
           <h1 className='header-title'>JJ's Math Facts</h1>
           <nav className='nav-list'>
-            <Link className='nav-link' to='/'>Home</Link>
-            <Link className='nav-link' to='/see'>See It!</Link>
-            <Link className='nav-link' to='/solve'>Solve it!</Link>
-            <Link className='nav-link' to='/about'>About!</Link>
+            <Link className='nav-link' to='/'><button className='button-nav'>Home</button></Link>
+            <Link className='nav-link' to='/see'><button className='button-nav'>See It!</button></Link>
+            <Link className='nav-link' to='/solve'><button className='button-nav'>Solve It!</button></Link>
+            <Link className='nav-link' to='/about'><button className='button-nav'>About</button></Link>
           </nav>
         </header>
 

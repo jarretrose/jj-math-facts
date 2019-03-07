@@ -42,7 +42,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: darkblue;
+  color: black;
   padding: 0 16px;
 }
 
@@ -147,7 +147,8 @@ footer a {
   text-align: center;
 }
 
-button {
+.button-nav {
+  border: 2px solid darkblue;
   background-color: deepskyblue;
   min-width: 110px;
   padding: 4px 0;
@@ -157,6 +158,29 @@ button {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.button-nav:focus {
+  background-color: yellow;
+  outline: none;
+}
+
+.button-math {
+  border: 2px solid darkblue;
+  background-color: deepskyblue;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 10px;
+  border-radius: 50%;
+}
+
+.button-math:focus {
+  background-color: yellow;
+  outline: none;
 }
 
 .work-space {
