@@ -15,13 +15,14 @@ body {
   background-color: lightblue;
   color: black;
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 1vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* HEADER STYLING */
 .header-title {
+  font-size: 4vw;
   padding: 14px 16px;
 }
 
@@ -36,12 +37,12 @@ body {
 .button-nav {
   border: 2px solid darkblue;
   background-color: deepskyblue;
-  min-width: 110px;
-  padding: 4px 10px;
-  margin: 10px 4px;
+  width: 12vw;
+  height: 4vh;
+  font-size: 2vw;
+  margin: 2vh 2vw;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -63,14 +64,11 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  height: 5vh;
   text-align: center;
   color: darkblue;
-}
-
-footer p {
-  padding: 10px 0;
-  margin: 0;
+  font-size: 1vw;
 }
 
 footer a {
@@ -150,7 +148,7 @@ footer a {
 
 /* COMPONENT STYLING */
 .see-main, .solve-main, .about-main {
-  font-size: 16px;
+  font-size: 2vw;
   padding-top: 10px;
   padding-left: 10px;
   text-align: center;
@@ -160,12 +158,13 @@ footer a {
   border: 2px solid darkblue;
   background-color: deepskyblue;
   color: black;
-  padding: 20px;
+  width: 8vw;
+  height: 8vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 10px 10px;
+  font-size: 4vw;
+  margin: 2vh 2vw;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -184,5 +183,5 @@ footer a {
 .work-space {
   padding-top: 20px;
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 2vw;
 }
