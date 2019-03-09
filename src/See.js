@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+
 import SeeWorkSpace from './SeeWorkSpace';
 
 class See extends Component {
@@ -21,7 +22,7 @@ class See extends Component {
         </section>
 
         <section className='see-work'>
-          <SeeWorkSpace category={this.state.selectedCategory}/>
+          <SeeWorkSpace category={this.state.selectedCategory} />
         </section>
       </Fragment>
     )
