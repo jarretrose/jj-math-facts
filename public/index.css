@@ -1,7 +1,27 @@
-/* BODY STYLING */
+html, body {
+  margin: 0;
+}
+
+.main-page {
+  margin: 5vh 2vw;
+}
+
+/* OLD STYLING
 
 html {
   box-sizing: border-box;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
 }
 
 *, *:before, *:after {
@@ -15,36 +35,34 @@ body {
   background-color: lightblue;
   color: black;
   font-family: 'Roboto', sans-serif;
-  font-size: 1vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* HEADER STYLING */
+
 .header-title {
-  font-size: 4vw;
   padding: 14px 16px;
 }
 
 .nav-header {
   text-align: center;
   background: linear-gradient(to bottom, white, lightblue);
-  width: 100%;
+  width: 100vw;
   color: darkblue;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 .button-nav {
-  border: 2px solid darkblue;
+  border: 1px solid darkblue;
   background-color: deepskyblue;
-  width: 12vw;
-  height: 4vh;
-  font-size: 2vw;
+  font-size: inherit;
+  width: 15vw;
+  height: 5vh;
   margin: 2vh 2vw;
   text-align: center;
   text-decoration: none;
-  border-radius: 5px;
   cursor: pointer;
+  border-radius: 5%;
 }
 
 .button-nav:active {
@@ -58,24 +76,23 @@ body {
   outline: none;
 }
 
-/* FOOTER  */
+
 footer {
   background: linear-gradient(to top, white, lightblue);
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 5vh;
+  font-size: calc(10px + 6 * ((100vw - 320px) / 680));
   text-align: center;
   color: darkblue;
-  font-size: 1vw;
 }
 
 footer a {
   text-decoration: none;
 }
 
-/* MAIN CONTENT STYLING */
+
 .home-page {
   display: flex;
   align-items: center;
@@ -84,78 +101,19 @@ footer a {
   flex-wrap: wrap;
 }
 
-/* MATH CUBE IMAGE */
-.cube-wrap {
-	perspective: 800px;
-  perspective-origin: 50% 200px;
-}
 
-.math-cube {
-  margin-top: 100px;
-  display: flex;
-	position: relative;
-	width: 200px;
-  transform-style: preserve-3d;
-}
-
-.math-cube div {
-	position: absolute;
-	width: 200px;
-  height: 200px;
-}
-
-.face {
-  display: flex;
-  outline: 3px solid darkblue;
-  background: radial-gradient(white, lightblue);
-  color: darkblue;
-  font-size: 100px;
-  align-items: center;
-  justify-content: center;
-}
-
-.back {
-  transform: translateZ(-100px) rotateY(180deg);
-}
-.right {
-	transform: rotateY(-270deg) translateX(100px);
-	transform-origin: top right;
-}
-.left {
-	transform: rotateY(270deg) translateX(-100px);
-	transform-origin: center left;
-}
-.top {
-	transform: rotateX(-90deg) translateY(-100px);
-	transform-origin: top center;
-}
-.bottom {
-	transform: rotateX(90deg) translateY(100px);
-	transform-origin: bottom center;
-}
-.front {
-	transform: translateZ(100px);
-}
-
-.math-cube {
-	animation: spin 10s infinite linear;
-}
-
-@keyframes spin {
-	from { transform: rotateY(360deg); }
-	to { transform: rotateY(0); }
-}
-
-/* COMPONENT STYLING */
 .see-main, .solve-main, .about-main {
-  font-size: 2vw;
   padding-top: 10px;
-  padding-left: 10px;
   text-align: center;
 }
 
+.work-space {
+  padding-top: 20px;
+  font-size: 2vw;
+}
+
 .button-math {
-  border: 2px solid darkblue;
+  border: 1px solid darkblue;
   background-color: deepskyblue;
   color: black;
   width: 8vw;
@@ -163,7 +121,6 @@ footer a {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 4vw;
   margin: 2vh 2vw;
   border-radius: 50%;
   cursor: pointer;
@@ -180,8 +137,66 @@ footer a {
   outline: none;
 }
 
-.work-space {
-  padding-top: 20px;
-  padding-left: 10px;
-  font-size: 2vw;
+
+.cube-wrap {
+	perspective: 800px;
+  perspective-origin: 50% 200px;
 }
+
+.math-cube {
+  margin-top: 100px;
+  display: flex;
+	position: relative;
+	width: 100px;
+  transform-style: preserve-3d;
+}
+
+.math-cube div {
+	position: absolute;
+	width: 100px;
+  height: 100px;
+}
+
+.face {
+  display: flex;
+  outline: 1px solid darkblue;
+  background: radial-gradient(white, lightblue);
+  color: darkblue;
+  font-size: 90px;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  transform: translateZ(-50px) rotateY(180deg);
+}
+.right {
+	transform: rotateY(-270deg) translateX(50px);
+	transform-origin: top right;
+}
+.left {
+	transform: rotateY(270deg) translateX(-50px);
+	transform-origin: center left;
+}
+.top {
+	transform: rotateX(-90deg) translateY(-50px);
+	transform-origin: top center;
+}
+.bottom {
+	transform: rotateX(90deg) translateY(50px);
+	transform-origin: bottom center;
+}
+.front {
+	transform: translateZ(50px);
+}
+
+.math-cube {
+	animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+	from { transform: rotateY(360deg); }
+	to { transform: rotateY(0); }
+}
+
+*/
