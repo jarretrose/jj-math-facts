@@ -11,8 +11,10 @@ const styles = theme => ({
     bottom: 0,
   },
   button: {
-    margin: theme.spacing.unit,
-    [theme.breakpoints.down('sm')]: { margin: theme.spacing.unit / 2 },
+    marginLeft: theme.spacing.unit,
+    [theme.breakpoints.down('xs')]: { marginLeft: theme.spacing.unit / 2 },
+    marginRight: theme.spacing.unit,
+    [theme.breakpoints.down('xs')]: { marginRight: theme.spacing.unit / 2 },
     marginBottom: theme.spacing.unit * 2,
   }
 })
