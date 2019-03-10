@@ -2,7 +2,7 @@ const drawerWidth = 240
 
 const styles = theme => ({
   title: {
-    fontFamily: "'Chalkboard SE', 'Chalkboard', 'Roboto', 'sans serif'"
+    fontFamily: "'Chalkboard SE', 'Chalkboard', 'Short Stack', 'Roboto', 'sans serif'"
   },
   navbar: {
     width: '100vw',
