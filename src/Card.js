@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from 'react'
+import { withStyles, Typography } from '@material-ui/core'
+import styles from './styles'
 
 class Card extends Component {
 
   render() {
     return (
       <Fragment>
-        <section className='card-space'>
-        </section>
+        <Typography>I am the card.</Typography>
       </Fragment>
     )
   }
 }
 
-export default Card;
+export default withStyles(styles)(Card);

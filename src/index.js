@@ -14,6 +14,6 @@ render(
     <Router>
       <App />
     </Router>
-  </MuiThemeProvider>
-  , root
+  </MuiThemeProvider>, 
+  root
 );

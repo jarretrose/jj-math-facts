@@ -1,19 +1,18 @@
 import React, { Component, Fragment } from 'react'
+import { withStyles, Typography } from '@material-ui/core';
+import styles from './styles'
 import Card from './Card'
 
 class SolveWorkSpace extends Component {
 
   render() {
-    const { category } = this.props
     return (
       <Fragment>
-        <section className='work-space'>
-          <h1>{category.toUpperCase()}</h1>
-          <Card />
-        </section>
+        <Typography variant='h5' gutterBottom>{this.props.category.toUpperCase()}</Typography>
+        <Card />
       </Fragment>
     )
   }
 }
 
-export default SolveWorkSpace;
+export default withStyles(styles)(SolveWorkSpace);

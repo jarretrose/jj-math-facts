@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react'
+import { withStyles, Typography } from '@material-ui/core';
+import styles from './styles'
 import Card from './Card'
 
 class SeeWorkSpace extends Component {
@@ -6,13 +8,11 @@ class SeeWorkSpace extends Component {
   render() {
     return (
       <Fragment>
-        <section className='work-space'>
-          <h1>{this.props.category.toUpperCase()}</h1>
-          <Card />
-        </section>
+        <Typography variant='h5' gutterBottom>{this.props.category.toUpperCase()}</Typography>
+        <Card />
       </Fragment>
     )
   }
 }
 
-export default SeeWorkSpace;
+export default withStyles(styles)(SeeWorkSpace);

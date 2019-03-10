@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Route } from 'react-router-dom'
+import styles from './styles'
+import { withStyles } from '@material-ui/core';
 
 import NavBar from './NavBar'
 import Footer from './Footer'
-import MathCube from './MathCube';
+import Home from './Home';
 import See from './See'
 import Solve from './Solve'
 import About from './About'
@@ -21,7 +23,7 @@ class App extends Component {
 
         {/* MAIN PAGE */}
         <section className='main-page'>
-          <Route exact path='/' component={MathCube} />
+          <Route exact path='/' component={Home} />
           <Route path='/see' component={See} />
           <Route path='/solve' component={Solve} />
           <Route path='/about' component={About} />
@@ -31,9 +33,10 @@ class App extends Component {
         <footer>
           <Footer />
         </footer>
+        
       </Fragment>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);

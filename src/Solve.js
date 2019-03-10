@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import SolveWorkSpace from './SolveWorkSpace'
-
+import Button from '@material-ui/core/Button'
+import styles from './styles'
+import { withStyles, Typography } from '@material-ui/core';
 
 class Solve extends Component {
   constructor() {
@@ -11,22 +13,23 @@ class Solve extends Component {
   }
 
   render() {
+    const { classes } = this.props
+
     return (
       <Fragment>
-        <section className='solve-main'>
-          <h1>Solve It!</h1>
-          <button className='button-math' id='add-nav-button'><i className="fas fa-plus"></i></button>
-          <button className='button-math' id='sub-nav-button'><i className="fas fa-minus"></i></button>
-          <button className='button-math' id='mult-nav-button'><i className="fas fa-times"></i></button>
-          <button className='button-math' id='div-nav-button'><i className="fas fa-divide"></i></button>
-        </section>
 
-        <section className='solve-work'>
-          <SolveWorkSpace category={this.state.selectedCategory}/>
-        </section>
+        <Typography variant='h5' gutterBottom>Solve It!</Typography>
+
+        <Button variant='contained' color='secondary' className={classes.button}><i className="fas fa-plus" /></Button>
+        <Button variant='contained' color='secondary' className={classes.button}><i className="fas fa-minus" /></Button>
+        <Button variant='contained' color='secondary' className={classes.button}><i className="fas fa-times" /></Button>
+        <Button variant='contained' color='secondary'className={classes.button}><i className="fas fa-divide" /></Button>
+
+        <SolveWorkSpace category={this.state.selectedCategory} />
+
       </Fragment>
     )
   }
 }
 
-export default Solve;
+export default withStyles(styles)(Solve);

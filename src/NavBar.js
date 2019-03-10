@@ -1,36 +1,42 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import styles from './styles'
+
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const styles = {
-  root: {
-    width: '100vw',
-  },
-}
-
 class NavBar extends Component {
   state = { value: 0 }
 
-  handleChange = (event, value) => this.setState({value})
+  handleChange = (event, value) => this.setState({ value })
+
+  componentDidMount = () => {
+    let loc = window.location.href.split('/')[3]
+    let value = 0
+    if (loc === 'see') value = 1
+    else if (loc === 'solve') value = 2
+    else if (loc === 'about') value = 3
+    
+    this.setState({value});
+  }
 
   render() {
     const { classes } = this.props
     const { value } = this.state
 
     return (
-      <div className={classes.root}>
+      <div className={classes.app_bar_root}>
         <AppBar position='static'>
           <Tabs value={value} onChange={this.handleChange}>
-            
-            <Tab label='Home' component={Link} to={'/'} />
-            <Tab label='See It!' component={Link} to={'/see'} />
-            <Tab label='Solve It!' component={Link} to={'/solve'} />
-            <Tab label='About' component={Link} to={'/about'} />
+
+            <Tab label='Home' value={0} component={Link} to={'/'} />
+            <Tab label='See It!' value={1} component={Link} to={'/see'} />
+            <Tab label='Solve It!' value={2} component={Link} to={'/solve'} />
+            <Tab label='About' value={3} component={Link} to={'/about'} />
 
           </Tabs>
         </AppBar>

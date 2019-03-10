@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
+import styles from './styles'
+import { withStyles, Typography } from '@material-ui/core';
 
 const About = () =>
   <Fragment>
-    <section className='about-main'>
-      <h1>About!</h1>
-    </section>
+    <Typography variant='h5' gutterBottom>About!</Typography>
   </Fragment>
 
-export default About;
+export default withStyles(styles)(About);
