@@ -8,9 +8,11 @@ class Solve extends Component {
   constructor() {
     super()
     this.state = {
-      selectedCategory: 'Please Choose A Category'
+      category: 'Please Choose A Category'
     }
   }
+
+  handleClick = (category) => this.setState({category})
 
   render() {
     const { classes } = this.props
@@ -20,12 +22,23 @@ class Solve extends Component {
 
         <Typography variant='h5' gutterBottom>Solve It!</Typography>
 
-        <Button variant='contained' color='secondary' className={classes.button}><i className="fas fa-plus" /></Button>
-        <Button variant='contained' color='secondary' className={classes.button}><i className="fas fa-minus" /></Button>
-        <Button variant='contained' color='secondary' className={classes.button}><i className="fas fa-times" /></Button>
-        <Button variant='contained' color='secondary'className={classes.button}><i className="fas fa-divide" /></Button>
+        <Button variant='contained' color='secondary' className={classes.button}
+        onClick={() => this.handleClick('addition')}> 
+        <i className="fas fa-plus" /></Button>
 
-        <SolveWorkSpace category={this.state.selectedCategory} />
+        <Button variant='contained' color='secondary' className={classes.button}
+        onClick={() => this.handleClick('subtraction')}>
+        <i className="fas fa-minus" /></Button>
+
+        <Button variant='contained' color='secondary' className={classes.button}
+        onClick={() => this.handleClick('multiplication')}>
+        <i className="fas fa-times" /></Button>
+
+        <Button variant='contained' color='secondary' className={classes.button}
+        onClick={() => this.handleClick('division')}>
+        <i className="fas fa-divide" /></Button>
+
+        <SolveWorkSpace category={this.state.category} />
 
       </Fragment>
     )
