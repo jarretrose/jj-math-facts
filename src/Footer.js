@@ -12,8 +12,7 @@ function Footer(props) {
   const { classes } = props
 
   return (
-    <div className={classes.footer_root}>
-      <AppBar position='static' color="primary">
+      <AppBar position='static' color="primary" className={classes.footBar}>
         <Toolbar>
           <Typography color="inherit">
             A simple app for practicing math facts.
@@ -22,7 +21,6 @@ function Footer(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-    </div>
   )
 }
 

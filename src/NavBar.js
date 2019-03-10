@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styles from './styles'
 
 import PropTypes from 'prop-types'
-import { withStyles, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -17,9 +17,11 @@ class NavBar extends Component {
   componentDidMount = () => {
     let loc = window.location.href.split('/')[3]
     let value = 0
+    
     if (loc === 'see') value = 1
     else if (loc === 'solve') value = 2
     else if (loc === 'about') value = 3
+    else value = 0
     
     this.setState({value})
   }
@@ -29,7 +31,7 @@ class NavBar extends Component {
     const { value } = this.state
 
     return (
-      <div className={classes.app_bar_root}>
+      <div className={classes.navbar}>
         <AppBar position='static'>
           <Tabs value={value} onChange={this.handleChange}>
             <Tab label='Home' value={0} component={Link} to={'/'} />

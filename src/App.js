@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import styles from './styles'
 import { withStyles } from '@material-ui/core'
+import PropTypes from 'prop-types'
 
 import NavBar from './NavBar'
 import Footer from './Footer'
@@ -13,6 +14,8 @@ import About from './About'
 class App extends Component {
 
   render() {
+    const { classes } = this.props
+    
     return (
       <Fragment>
 
@@ -22,7 +25,7 @@ class App extends Component {
         </header>
 
         {/* MAIN PAGE */}
-        <section className='main-page'>
+        <section className={classes.mainPage}>
           <Route exact path='/' component={Home} />
           <Route path='/see' component={See} />
           <Route path='/solve' component={Solve} />
@@ -30,13 +33,17 @@ class App extends Component {
         </section>
 
         {/* FOOTER */}
-        <footer>
+        <footer className={classes.footer}>
           <Footer />
         </footer>
         
       </Fragment>
     );
   }
+}
+
+App.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(App)

@@ -3,6 +3,7 @@ import SolveWorkSpace from './SolveWorkSpace'
 import Button from '@material-ui/core/Button'
 import styles from './styles'
 import { withStyles, Typography } from '@material-ui/core'
+import PropTypes from 'prop-types'
 
 class Solve extends Component {
   constructor() {
@@ -43,6 +44,10 @@ class Solve extends Component {
       </Fragment>
     )
   }
+}
+
+Solve.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(Solve)

@@ -3,6 +3,7 @@ import SeeWorkSpace from './SeeWorkSpace'
 import Button from '@material-ui/core/Button'
 import styles from './styles'
 import { withStyles, Typography } from '@material-ui/core'
+import PropTypes from 'prop-types'
 
 class See extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class See extends Component {
     }
   }
 
-  handleClick = (category) => this.setState({category})
+  handleClick = (category) => this.setState({ category })
 
   render() {
     const { classes } = this.props
@@ -22,20 +23,20 @@ class See extends Component {
         <Typography variant='h5' gutterBottom>See It!</Typography>
 
         <Button variant='contained' color='secondary' className={classes.button}
-        onClick={() => this.handleClick('addition')}> 
-        <i className="fas fa-plus" /></Button>
+          onClick={() => this.handleClick('addition')}>
+          <i className="fas fa-plus" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-        onClick={() => this.handleClick('subtraction')}>
-        <i className="fas fa-minus" /></Button>
+          onClick={() => this.handleClick('subtraction')}>
+          <i className="fas fa-minus" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-        onClick={() => this.handleClick('multiplication')}>
-        <i className="fas fa-times" /></Button>
+          onClick={() => this.handleClick('multiplication')}>
+          <i className="fas fa-times" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-        onClick={() => this.handleClick('division')}>
-        <i className="fas fa-divide" /></Button>
+          onClick={() => this.handleClick('division')}>
+          <i className="fas fa-divide" /></Button>
 
         <SeeWorkSpace category={this.state.category} />
 
@@ -44,4 +45,7 @@ class See extends Component {
   }
 }
 
+See.propTypes = {
+  classes: PropTypes.object.isRequired
+}
 export default withStyles(styles)(See)
