@@ -21,7 +21,7 @@ class Solve extends Component {
     return (
       <Fragment>
 
-        <Typography variant='h6' gutterBottom>
+        <Typography variant='h6' gutterBottom className={classes.title}>
         Solve It: {this.state.category}
         </Typography>
 

@@ -20,7 +20,7 @@ class See extends Component {
     return (
       <Fragment>
 
-        <Typography variant='h6' gutterBottom>
+        <Typography variant='h6' gutterBottom className={classes.title}>
           See It: {this.state.category}
         </Typography>
 

@@ -3,10 +3,15 @@ import styles from './styles'
 import PropTypes from 'prop-types'
 import { withStyles, Typography } from '@material-ui/core'
 
-const About = () =>
+const About = props => {
+  const { classes } = props
+
+  return (
   <Fragment>
-    <Typography variant='h5' gutterBottom>About!</Typography>
+    <Typography variant='h5' gutterBottom className={classes.title}>About!</Typography>
   </Fragment>
+  )
+}
 
 About.propTypes = {
   classes: PropTypes.object.isRequired
