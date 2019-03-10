@@ -9,11 +9,12 @@ class Solve extends Component {
   constructor() {
     super()
     this.state = {
-      category: 'Choose A Category'
+      category: 'Choose A Category',
+      symbol: '?'
     }
   }
 
-  handleClick = (category) => this.setState({category})
+  handleClick = (category, symbol) => this.setState({category, symbol})
 
   render() {
     const { classes } = this.props
@@ -22,23 +23,23 @@ class Solve extends Component {
       <Fragment>
 
         <Typography variant='h6' gutterBottom className={classes.title}>
-        Solve It: {this.state.category}
+        Solve It: {this.state.category}!
         </Typography>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('Addition')}>
+          onClick={() => this.handleClick('Addition', '+')}>
           <i className="fas fa-plus" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('Subtraction')}>
+          onClick={() => this.handleClick('Subtraction', '-')}>
           <i className="fas fa-minus" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('Multiplication')}>
+          onClick={() => this.handleClick('Multiplication', '×')}>
           <i className="fas fa-times" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('Division')}>
+          onClick={() => this.handleClick('Division', '÷')}>
           <i className="fas fa-divide" /></Button>
 
         <SolveWorkSpace category={this.state.category} />

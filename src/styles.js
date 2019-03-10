@@ -2,7 +2,7 @@ const drawerWidth = 240
 
 const styles = theme => ({
   title: {
-    fontFamily: "'Chalkboard SE', 'Chalkboard', 'Short Stack', 'Roboto', 'sans serif'"
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'"
   },
   navbar: {
     width: '100vw',
@@ -34,10 +34,18 @@ const styles = theme => ({
       },
     marginBottom: theme.spacing.unit * 2,
   },
-  card: {
-    width: '80vw',
-    height: '30vh',
+  cardLeft: {
+    width: '20vw',
+    height: '10vmax',
+    margin: theme.spacing.unit,
   },
+  cardRight: {
+    width: '50vmin',
+    height: '10vmin',
+    margin: theme.spacing.unit,
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+    fontSize: '8vmin'
+  }
 })
 
 export default styles
