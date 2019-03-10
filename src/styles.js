@@ -1,8 +1,12 @@
 const drawerWidth = 240
 
 const styles = theme => ({
+  title: {
+    fontFamily: '"Comic Sans MS", "Comic Sans", cursive'
+  },
   navbar: {
     width: '100vw',
+    textAlign: 'center',
   },
   mainPage: {
     margin: '5vmin',
@@ -31,7 +35,7 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 2,
   },
   card: {
-    width: '60vw',
+    width: '80vw',
     height: '30vh',
   },
 })

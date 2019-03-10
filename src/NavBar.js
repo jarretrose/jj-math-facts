@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import styles from './styles'
 
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core'
+import { withStyles, Typography } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
+import Grid from '@material-ui/core/Grid';
+
 
 class NavBar extends Component {
   state = { value: 0 }
@@ -17,13 +19,13 @@ class NavBar extends Component {
   componentDidMount = () => {
     let loc = window.location.href.split('/')[3]
     let value = 0
-    
+
     if (loc === 'see') value = 1
     else if (loc === 'solve') value = 2
     else if (loc === 'about') value = 3
     else value = 0
-    
-    this.setState({value})
+
+    this.setState({ value })
   }
 
   render() {
@@ -33,12 +35,15 @@ class NavBar extends Component {
     return (
       <div className={classes.navbar}>
         <AppBar position='static'>
-          <Tabs value={value} onChange={this.handleChange}>
-            <Tab label='Home' value={0} component={Link} to={'/'} />
-            <Tab label='See It!' value={1} component={Link} to={'/see'} />
-            <Tab label='Solve It!' value={2} component={Link} to={'/solve'} />
-            <Tab label='About' value={3} component={Link} to={'/about'} />
-          </Tabs>
+          <Typography variant='h5' color='secondary' className={classes.title}>JJ'S MATH FACTS</Typography>
+          <Grid container justify='center'>
+            <Tabs value={value} onChange={this.handleChange}>
+              <Tab label='Home' value={0} component={Link} to={'/'} />
+              <Tab label='See It!' value={1} component={Link} to={'/see'} />
+              <Tab label='Solve It!' value={2} component={Link} to={'/solve'} />
+              <Tab label='About' value={3} component={Link} to={'/about'} />
+            </Tabs>
+          </Grid>
         </AppBar>
       </div >
     )

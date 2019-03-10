@@ -9,7 +9,7 @@ class See extends Component {
   constructor() {
     super()
     this.state = {
-      category: 'Please Choose A Category'
+      category: 'Choose A Category'
     }
   }
 
@@ -20,22 +20,24 @@ class See extends Component {
     return (
       <Fragment>
 
-        <Typography variant='h5' gutterBottom>See It!</Typography>
+        <Typography variant='h6' gutterBottom>
+          See It: {this.state.category}
+        </Typography>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('addition')}>
+          onClick={() => this.handleClick('Addition')}>
           <i className="fas fa-plus" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('subtraction')}>
+          onClick={() => this.handleClick('Subtraction')}>
           <i className="fas fa-minus" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('multiplication')}>
+          onClick={() => this.handleClick('Multiplication')}>
           <i className="fas fa-times" /></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
-          onClick={() => this.handleClick('division')}>
+          onClick={() => this.handleClick('Division')}>
           <i className="fas fa-divide" /></Button>
 
         <SeeWorkSpace category={this.state.category} />

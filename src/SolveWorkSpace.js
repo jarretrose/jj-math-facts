@@ -3,6 +3,8 @@ import { withStyles, Typography } from '@material-ui/core'
 import styles from './styles'
 import PropTypes from 'prop-types'
 import Card from '@material-ui/core/Card'
+import Grid from '@material-ui/core/Grid';
+
 
 class SolveWorkSpace extends Component {
 
@@ -11,12 +13,11 @@ class SolveWorkSpace extends Component {
 
     return (
       <Fragment>
-        <Typography variant='h5' gutterBottom>{this.props.category.toUpperCase()}</Typography>
-
-        <Card className={classes.card}>
-          I am the card
-        </Card>
-      
+        <Grid container justify='center'>
+          <Card className={classes.card}>
+            I am the card
+          </Card>
+        </Grid>
       </Fragment>
     )
   }

@@ -9,10 +9,9 @@ class SeeWorkSpace extends Component {
 
   render() {
     const { classes } = this.props
+    
     return (
       <Fragment>
-        <Typography variant='h5' gutterBottom>{this.props.category.toUpperCase()}</Typography>
-
         <Grid container justify='center'>
           <Card className={classes.card}>
             I am the card
