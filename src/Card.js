@@ -13,4 +13,4 @@ class Card extends Component {
   }
 }
 
-export default withStyles(styles)(Card);
+export default withStyles(styles)(Card)

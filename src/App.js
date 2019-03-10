@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import styles from './styles'
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core'
 
 import NavBar from './NavBar'
 import Footer from './Footer'
-import Home from './Home';
+import Home from './Home'
 import See from './See'
 import Solve from './Solve'
 import About from './About'
@@ -39,4 +39,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(App)

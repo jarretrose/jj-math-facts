@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import SeeWorkSpace from './SeeWorkSpace';
+import SeeWorkSpace from './SeeWorkSpace'
 import Button from '@material-ui/core/Button'
 import styles from './styles'
-import { withStyles, Typography } from '@material-ui/core';
+import { withStyles, Typography } from '@material-ui/core'
 
 class See extends Component {
   constructor() {
@@ -44,4 +44,4 @@ class See extends Component {
   }
 }
 
-export default withStyles(styles)(See);
+export default withStyles(styles)(See)

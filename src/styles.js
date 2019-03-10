@@ -1,4 +1,4 @@
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const styles = theme => ({
   app_bar_root: {
@@ -19,4 +19,4 @@ const styles = theme => ({
   }
 })
 
-export default styles;
+export default styles

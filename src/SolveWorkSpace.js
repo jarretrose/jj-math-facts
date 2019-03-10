@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { withStyles, Typography } from '@material-ui/core';
+import { withStyles, Typography } from '@material-ui/core'
 import styles from './styles'
 import Card from './Card'
 
@@ -15,4 +15,4 @@ class SolveWorkSpace extends Component {
   }
 }
 
-export default withStyles(styles)(SolveWorkSpace);
+export default withStyles(styles)(SolveWorkSpace)

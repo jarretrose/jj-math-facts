@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import SolveWorkSpace from './SolveWorkSpace'
 import Button from '@material-ui/core/Button'
 import styles from './styles'
-import { withStyles, Typography } from '@material-ui/core';
+import { withStyles, Typography } from '@material-ui/core'
 
 class Solve extends Component {
   constructor() {
@@ -45,4 +45,4 @@ class Solve extends Component {
   }
 }
 
-export default withStyles(styles)(Solve);
+export default withStyles(styles)(Solve)

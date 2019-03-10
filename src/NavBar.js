@@ -6,8 +6,8 @@ import styles from './styles'
 import PropTypes from 'prop-types'
 import { withStyles, Typography } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
 
 class NavBar extends Component {
   state = { value: 0 }
@@ -21,7 +21,7 @@ class NavBar extends Component {
     else if (loc === 'solve') value = 2
     else if (loc === 'about') value = 3
     
-    this.setState({value});
+    this.setState({value})
   }
 
   render() {
@@ -47,4 +47,4 @@ NavBar.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(NavBar);
+export default withStyles(styles)(NavBar)
