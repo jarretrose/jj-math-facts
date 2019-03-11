@@ -9,8 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
 
 /*
-ADDITION
-number1 is the fact
+ADDITION & MULTIPLICATION
+factCategory = 0 through 9
 
 number2 increments
 number2 max is 9
@@ -20,11 +20,13 @@ number2 min is 0
 
 /*
 SUBTRACTION
-number1 increments
-number1 max is 9 + fact
-number1 min is the fact
+factCategory = 0 through 9
 
-number2 is the fact
+number2 increments
+number2 max is 9 + fact
+number2 min is the fact
+
+
 */
 
 class SeeWorkSpace extends Component {
@@ -37,22 +39,27 @@ class SeeWorkSpace extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('COMPONENT DID UPDATE')
     const { category } = this.props
+    const { number2, factCategory} = this.state
+
     if (prevProps.category !== category) {
 
       switch (category) {
         case 'Addition':
-          this.setState({ number2: 0 })
+          this.setState({ factCategory: 0, number2: 0 })
           break
 
-        case 'Subtraction': return null
+        case 'Subtraction':
+          this.setState({ factCategory: 0, number2: 0 })
           break
 
         case 'Multiplication':
-          this.setState({ number2: 0 })
+          this.setState({ factCategory: 0, number2: 0 })
           break
 
-        case 'Division': return null
+        case 'Division':
+          this.setState({ factCategory: 0, number2: 0 })
           break
 
         default: return null
@@ -62,73 +69,63 @@ class SeeWorkSpace extends Component {
 
   handleFactCategory = (change) => {
     const { factCategory } = this.state
-    if (factCategory + change > 9) return null
-    if (factCategory + change < 0) return null
-    this.setState({ factCategory: factCategory + change, number2: 0 })
+    const { category } = this.props
+    const targetNumber = factCategory + change
+    if (targetNumber > 10 || targetNumber < 0) return null
+    if (category === 'Subtraction') this.setState({ factCategory: targetNumber, number2: targetNumber})
+    else this.setState({ factCategory: targetNumber, number2: 0 })
   }
 
-  handleNext = () => {
+  handleProblemChange = (change) => {
     const { factCategory, number2 } = this.state
     const { category } = this.props
 
     switch (category) {
-
       case 'Addition':
-        if (number2 >= 9) return null
-        else this.setState({ number2: number2 + 1 })
-        break;
-
-      case 'Subtraction': return null
-
       case 'Multiplication':
-        if (number2 >= 9) return null
-        else this.setState({ number2: number2 + 1 })
+        if (number2 + change > 9 || number2 + change < 0) return null
+        else this.setState({ number2: number2 + change })
         break;
-
+      case 'Subtraction':
+        if (number2 + change > factCategory + 9 || number2 + change < factCategory) return null
+        this.setState({ number2: number2 + change})
+        break;
       case 'Division': return null
-
-      default: return null
-    }
-  }
-
-  handlePrevious = () => {
-    const { number1, number2 } = this.state
-    const { category } = this.props
-
-    switch (category) {
-
-      case 'Addition':
-        if (number2 <= 0) return null
-        else return this.setState({ number2: number2 - 1 })
-
-      case 'Subtraction': return null
-
-      case 'Multiplication': return null
-
-      case 'Division':
-        if (number2 <= 0) return null
-        else return this.setState({ number2: number2 - 1 })
-
       default: return null
     }
   }
 
   render() {
     const { classes, category, symbol } = this.props
-    const { number1, number2, factCategory } = this.state
+    const { number2, factCategory } = this.state
 
     let c = (num1, num2) => {
-      if (category === 'Addition') return num1 + num2
-      else if (category === 'Multiplication') return num1 * num2
-      else if (category === 'Subtraction') return num1 - num2
-      else if (category === 'Division') {
-        if (num2 === 0) return '--'
-        else return num1 / num2
+      const { category } = this.props
+      switch(category){
+        case 'Addition': 
+          return num1 + num2
+          break
+        case 'Multiplication': 
+          return num1 * num2
+          break
+        case 'Subtraction':
+          return num2 - num1
+          break
+        case 'Division':
+          if (num2 === 0) return '--'
+          else return num2 / num1
+          break
+        default: return null
       }
-      else return '?'
     }
 
-    const problem = `${factCategory} ${symbol} ${number2}`
+    const problem = () => {
+      const { category, symbol } = this.props
+      const { factCategory, number2} = this.state
+
+      if (category === 'Subtraction') return `${number2} ${symbol} ${factCategory}`
+      else return `${factCategory} ${symbol} ${number2}`
+    }
 
     const result = `${c(factCategory, number2)}`
 
@@ -148,21 +145,18 @@ class SeeWorkSpace extends Component {
         <Grid container justify='center'>
           <Grid item>
             <Card className={classes.card}>
-              <Typography variant='h3' className={classes.title}>{problem} = {result}</Typography>
+              <Typography variant='h3' className={classes.title}>{problem()} = {result}</Typography>
             </Card>
           </Grid>
         </Grid>
 
 
-        <Button className={classes.title} onClick={() => this.handlePrevious()}>
+        <Button className={classes.title} onClick={() => this.handleProblemChange(-1)}>
           <i className="material-icons">navigate_before</i>Previous</Button>
 
-        <Button className={classes.title} onClick={() => this.handleNext()}>
+        <Button className={classes.title} onClick={() => this.handleProblemChange(1)}>
           Next <i className="material-icons">navigate_next</i></Button>
-
-
-
-
+          
       </Fragment>
     )
   }
