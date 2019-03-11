@@ -15,65 +15,71 @@ class SeeWorkSpace extends Component {
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.category !== this.props.category) {
+  //     if (this.props.category === 'Subtraction') this.setState({number1: 20})
+  //     else this.setState({number1: 0})
+  //   }
+  // }
+
   handleNext = () => {
-    if (this.state.number2 >= 9) return null
-    else return this.setState({ number2: this.state.number2 + 1 })
+    const { number1, number2, category } = this.state
+    if (number2 >= 10) return null
+    else return this.setState({ number2: number2 + 1 })
   }
 
   handlePrevious = () => {
-    if (this.state.number2 <= 0) return null
-    this.setState({ number2: this.state.number2 - 1 })
+    const { number1, number2, category } = this.state
+    if (number2 <= 0) return null
+    this.setState({ number2: number2 - 1 })
   }
 
   render() {
     const { classes, category, symbol } = this.props
     const { number1, number2 } = this.state
 
-    const firstNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    const secondNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
     let c = (num1, num2) => {
       if (category === 'Addition') return num1 + num2
       else if (category === 'Multiplication') return num1 * num2
-      else if (category === 'Subtraction') return num2 - num1
+      else if (category === 'Subtraction') return num1 - num2
       else if (category === 'Division') {
         if (num2 === 0) return '--'
-        else return num2 / num1
+        else return num1 / num2
       }
       else return '?'
     }
 
-    const flow = () => {
-      if (category === 'Addition' || category === 'Multiplication') {
-        return `${firstNumber[number1]} ${symbol} ${secondNumber[number2]}`
-      }
-      else {
-        return `${secondNumber[number2]} ${symbol} ${firstNumber[number1]}`
-      }
-    }
+    const problem = `${number1} ${symbol} ${number2}`
+
+    const result = `${c(number1, number2)}`
 
     return (
       <Fragment>
         <Grid container justify='center'>
           <Grid>
 
-            <Card className={classes.cardRight}>
+            <Grid>
+              <Button className={classes.title}>Fact Category: Zero</Button>
+            </Grid>
 
-              {flow()} = {c(firstNumber[number1], secondNumber[number2])}
+            <Grid>
+              <Card className={classes.cardRight}>
+                {problem} = {result}
+              </Card>
+            </Grid>
 
-            </Card>
+            <Grid>
+              <Button className={classes.title} onClick={() => this.handlePrevious()}>
+                <i className="material-icons">navigate_before</i> Previous
+              </Button>
+
+              <Button className={classes.title} onClick={() => this.handleNext()}>
+                Next <i className="material-icons">navigate_next</i>
+              </Button>
+            </Grid>
 
           </Grid>
         </Grid>
-
-        <Button className={classes.title} onClick={() => this.handlePrevious()}>
-          <i className="material-icons">navigate_before</i> Previous
-        </Button>
-
-        <Button className={classes.title} onClick={() => this.handleNext()}>
-          Next <i className="material-icons">navigate_next</i>
-        </Button>
-
       </Fragment>
     )
   }
