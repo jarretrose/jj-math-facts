@@ -34,17 +34,10 @@ const styles = theme => ({
       },
     marginBottom: theme.spacing.unit * 2,
   },
-  cardLeft: {
-    width: '20vw',
-    height: '10vmax',
-    margin: theme.spacing.unit,
-  },
-  cardRight: {
-    width: '50vmin',
-    height: '10vmin',
-    margin: theme.spacing.unit,
+  card: {
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
-    fontSize: '8vmin'
+    fontSize: '8vmin',
+    padding: '5vmin'
   }
 })
 
