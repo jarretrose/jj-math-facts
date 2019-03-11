@@ -8,7 +8,13 @@ import Button from '@material-ui/core/Button'
 
 /*
 Division
+
+order: number2 / factCategory 
+
 factCategory = 1 through 9
+
+factCategory 1: increments by 1
+factCategory 2: increments by 2
 
 number2 increments
 number2 max is 9
@@ -26,7 +32,6 @@ class SeeWorkSpace extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('COMPONENT DID UPDATE')
     const { category } = this.props
 
     if (prevProps.category !== category) {
@@ -39,8 +44,8 @@ class SeeWorkSpace extends Component {
           return this.setState({ factCategory: 0, number2: 0 })
         case 'Division':
           return this.setState({ factCategory: 0, number2: 0 })
-        default: 
-          return null
+        default:
+          return this.setState({ factCategory: 0, number2: 0 })
       }
     }
   }
@@ -51,30 +56,44 @@ class SeeWorkSpace extends Component {
     const targetNumber = factCategory + change
 
     if (targetNumber > 10 || targetNumber < 0) return null
-    if (category === 'Subtraction') this.setState({ factCategory: targetNumber, number2: targetNumber})
-    else this.setState({ factCategory: targetNumber, number2: 0 })
+
+    switch(category) {
+      case 'Subtraction':
+      case 'Division':
+        return this.setState({ factCategory: targetNumber, number2: targetNumber})
+
+      case 'Addition':
+      case 'Multiplication':
+        return this.setState({ factCategory: targetNumber, number2: 0 })
+      default:
+        return null
+    }
   }
 
   handleProblemChange = (change) => {
     const { factCategory, number2 } = this.state
     const { category } = this.props
 
+    const maxChange = number2 + change
+
     switch (category) {
       case 'Addition':
       case 'Multiplication':
-        if (number2 + change > 9 || number2 + change < 0) return null
-        else return this.setState({ number2: number2 + change })
+        if (maxChange > 9 || maxChange < 0) return null
+        else return this.setState({ number2: maxChange })
       case 'Subtraction':
-        if (number2 + change > factCategory + 9 || number2 + change < factCategory) return null
-        else return this.setState({ number2: number2 + change})
+        if (maxChange > factCategory + 9 || maxChange < factCategory) return null
+        else return this.setState({ number2: maxChange })
       case 'Division': 
-        return null
-      default: 
+        if (maxChange > factCategory * 9 || maxChange < factCategory) return null
+        return this.setState({ number2: number2 + (factCategory * change)})
+      case 'Choose A Category': 
         return null
     }
   }
 
   render() {
+
     const { classes } = this.props
     const { number2, factCategory } = this.state
 
@@ -98,8 +117,16 @@ class SeeWorkSpace extends Component {
       const { category, symbol } = this.props
       const { factCategory, number2} = this.state
 
-      if (category === 'Subtraction') return `${number2} ${symbol} ${factCategory}`
-      else return `${factCategory} ${symbol} ${number2}`
+      switch(category) {
+        case 'Subtraction':
+        case 'Division':
+          return `${number2} ${symbol} ${factCategory}`
+        case 'Addition':
+        case 'Multiplication':
+          return `${factCategory} ${symbol} ${number2}`
+        default:
+          return `${factCategory} ${symbol} ${number2}`
+      }
     }
 
     const result = `${c(factCategory, number2)}`
@@ -116,7 +143,6 @@ class SeeWorkSpace extends Component {
           Next<i className="material-icons">navigate_next</i>
         </Button>
 
-
         <Grid container justify='center'>
           <Grid item>
             <Card className={classes.card}>
@@ -125,12 +151,11 @@ class SeeWorkSpace extends Component {
           </Grid>
         </Grid>
 
-
         <Button className={classes.title} onClick={() => this.handleProblemChange(-1)}>
           <i className="material-icons">navigate_before</i>Previous</Button>
 
         <Button className={classes.title} onClick={() => this.handleProblemChange(1)}>
-          Next <i className="material-icons">navigate_next</i></Button>
+          Next<i className="material-icons">navigate_next</i></Button>
 
       </Fragment>
     )
