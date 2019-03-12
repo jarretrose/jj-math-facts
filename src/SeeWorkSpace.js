@@ -6,22 +6,6 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
 
-/*
-Division
-
-order: number2 / factCategory 
-
-factCategory = 1 through 9
-
-factCategory 1: increments by 1
-factCategory 2: increments by 2
-
-number2 increments
-number2 max is 9
-number2 min is 1
-*/
-
-
 class SeeWorkSpace extends Component {
   constructor() {
     super()
@@ -87,7 +71,7 @@ class SeeWorkSpace extends Component {
       case 'Division': 
         if (maxChange > factCategory * 9 || maxChange < factCategory) return null
         return this.setState({ number2: number2 + (factCategory * change)})
-      case 'Choose A Category': 
+      default: 
         return null
     }
   }

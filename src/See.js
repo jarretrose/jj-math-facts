@@ -27,19 +27,19 @@ class See extends Component {
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Addition', '+')}>
-          <i className="fas fa-plus" /></Button>
+          <Typography variant="h4">+</Typography></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Subtraction', '-')}>
-          <i className="fas fa-minus" /></Button>
+          <Typography variant="h4">-</Typography></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Multiplication', '×')}>
-          <i className="fas fa-times" /></Button>
-
+          <Typography variant="h4">×</Typography></Button>
+          
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Division', '÷')}>
-          <i className="fas fa-divide" /></Button>
+          <Typography variant="h4">÷</Typography></Button>
 
         <SeeWorkSpace category={this.state.category} symbol={this.state.symbol} />
 

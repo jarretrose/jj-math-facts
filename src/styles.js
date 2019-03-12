@@ -38,6 +38,10 @@ const styles = theme => ({
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '8vmin',
     padding: '5vmin'
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   }
 })
 

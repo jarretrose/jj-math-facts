@@ -1,23 +1,182 @@
 import React, { Component, Fragment } from 'react'
 import { withStyles, Typography } from '@material-ui/core'
 import styles from './styles'
+import Card from '@material-ui/core/Card';
 import PropTypes from 'prop-types'
-import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid';
-
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField';
 
 class SolveWorkSpace extends Component {
+  constructor() {
+    super()
+    this.state = {
+      factCategory: 0,
+      number2: 0,
+      answer: '',
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { category } = this.props
+
+    console.log(this.state.answer)
+
+    if (prevProps.category !== category) {
+      switch (category) {
+        case 'Addition':
+          return this.setState({ factCategory: 0, number2: 0 })
+        case 'Subtraction':
+          return this.setState({ factCategory: 0, number2: 0 })
+        case 'Multiplication':
+          return this.setState({ factCategory: 0, number2: 0 })
+        case 'Division':
+          return this.setState({ factCategory: 0, number2: 0 })
+        default:
+          return this.setState({ factCategory: 0, number2: 0 })
+      }
+    }
+  }
+
+  handleFactCategory = (change) => {
+    const { factCategory } = this.state
+    const { category } = this.props
+    const targetNumber = factCategory + change
+
+    if (targetNumber > 10 || targetNumber < 0) return null
+
+    switch(category) {
+      case 'Subtraction':
+      case 'Division':
+        return this.setState({ factCategory: targetNumber, number2: targetNumber})
+
+      case 'Addition':
+      case 'Multiplication':
+        return this.setState({ factCategory: targetNumber, number2: 0 })
+      default:
+        return null
+    }
+  }
+
+  handleProblemChange = (change) => {
+    const { factCategory, number2 } = this.state
+    const { category } = this.props
+
+    const maxChange = number2 + change
+
+    switch (category) {
+      case 'Addition':
+      case 'Multiplication':
+        if (maxChange > 9 || maxChange < 0) return null
+        else return this.setState({ number2: maxChange })
+      case 'Subtraction':
+        if (maxChange > factCategory + 9 || maxChange < factCategory) return null
+        else return this.setState({ number2: maxChange })
+      case 'Division': 
+        if (maxChange > factCategory * 9 || maxChange < factCategory) return null
+        return this.setState({ number2: number2 + (factCategory * change)})
+      default: 
+        return null 
+    }
+  }
+
+  handleAnswer = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
+  submitAnswer = (event) => {
+    event.preventDefault()
+    alert(`Something will happen here in the future and it won't be an alert.`)
+    this.setState({
+      answer: '',
+    })
+  }
 
   render() {
+
     const { classes } = this.props
+    const { number2, factCategory } = this.state
+
+    let c = (num1, num2) => {
+      const { category } = this.props
+      switch(category){
+        case 'Addition': 
+          return num1 + num2
+        case 'Multiplication': 
+          return num1 * num2
+        case 'Subtraction':
+          return num2 - num1
+        case 'Division':
+          if (num2 === 0) return '--'
+          else return num2 / num1
+        default: return '?'
+      }
+    }
+
+    const result = `${c(factCategory, number2)}`
+
+    const problem = () => {
+      const { category, symbol } = this.props
+      const { factCategory, number2} = this.state
+
+      switch(category) {
+        case 'Subtraction':
+        case 'Division':
+          return `${number2} ${symbol} ${factCategory}`
+        case 'Addition':
+        case 'Multiplication':
+          return `${factCategory} ${symbol} ${number2}`
+        default:
+          return `${factCategory} ${symbol} ${number2}`
+      }
+    }
 
     return (
       <Fragment>
+
+        <Typography variant='h5' className={classes.title}>Fact Category: {factCategory}</Typography>
+
+        <Button className={classes.title} onClick={() => this.handleFactCategory(-1)}>
+          <i className="material-icons">navigate_before</i>Previous</Button>
+
+        <Button className={classes.title} onClick={() => this.handleFactCategory(1)}>
+          Next<i className="material-icons">navigate_next</i>
+        </Button>
+
         <Grid container justify='center'>
-          <Card className={classes.card}>
-            I am the card
-          </Card>
+          <Grid item>
+            <Card className={classes.card}>
+              <Typography variant='h3' className={classes.title}>{problem()} = {this.state.answer} </Typography>
+              <form onSubmit={this.submitAnswer}>
+
+                <TextField
+                  id="outlined-number"
+                  label="Answer"
+                  value={this.state.answer}
+                  onChange={this.handleAnswer('answer')}
+                  type="number"
+                  placeholder='0'
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  variant="outlined"
+                />
+
+              </form>
+            </Card>
+          </Grid>
         </Grid>
+
+        <Button className={classes.title} onClick={() => this.handleProblemChange(-1)}>
+          <i className="material-icons">navigate_before</i>Previous</Button>
+
+        <Button className={classes.title} onClick={() => this.handleProblemChange(1)}>
+          Next<i className="material-icons">navigate_next</i></Button>
+
       </Fragment>
     )
   }
