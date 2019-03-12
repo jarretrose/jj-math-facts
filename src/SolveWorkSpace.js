@@ -138,9 +138,7 @@ class SolveWorkSpace extends Component {
 
     const { classes } = this.props
     const { factCategory } = this.state
-
-    console.log(this.state)
-
+    
     return (
       <Fragment>
 

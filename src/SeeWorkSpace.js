@@ -20,8 +20,6 @@ class SeeWorkSpace extends Component {
     const { category } = this.props
     const { factCategory, number2 } = this.state
 
-    console.log(this.state)
-
     if (prevProps.category !== category) {
       switch (category) {
         case 'Addition':
