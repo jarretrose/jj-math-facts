@@ -21,25 +21,25 @@ class See extends Component {
     return (
       <Fragment>
 
-        <Typography variant='h6' gutterBottom className={classes.title}>
+        <Typography variant='h5' gutterBottom className={classes.title}>
           See It: {this.state.category}!
         </Typography>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Addition', '+')}>
-          <Typography variant="h4">+</Typography></Button>
+          <Typography variant="h4" className={classes.mathButton}>+</Typography></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Subtraction', '-')}>
-          <Typography variant="h4">-</Typography></Button>
+          <Typography variant="h4" className={classes.mathButton}>-</Typography></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Multiplication', '×')}>
-          <Typography variant="h4">×</Typography></Button>
+          <Typography variant="h4" className={classes.mathButton}>×</Typography></Button>
           
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Division', '÷')}>
-          <Typography variant="h4">÷</Typography></Button>
+          <Typography variant="h4" className={classes.mathButton}>÷</Typography></Button>
 
         <SeeWorkSpace category={this.state.category} symbol={this.state.symbol} />
 

@@ -38,10 +38,10 @@ class NavBar extends Component {
           <Typography variant='h5' color='secondary' className={classes.title}>JJ'S MATH FACTS</Typography>
           <Grid container justify='center'>
             <Tabs value={value} onChange={this.handleChange}>
-              <Tab label='Home' value={0} component={Link} to={'/'} />
-              <Tab label='See It!' value={1} component={Link} to={'/see'} />
-              <Tab label='Solve It!' value={2} component={Link} to={'/solve'} />
-              <Tab label='About' value={3} component={Link} to={'/about'} />
+              <Tab label='Home' value={0} className={classes.tab} component={Link} to={'/'} />
+              <Tab label='See It!' value={1} className={classes.tab} component={Link} to={'/see'} />
+              <Tab label='Solve It!' value={2} className={classes.tab} component={Link} to={'/solve'} />
+              {/* <Tab label='About' value={3} className={classes.tab} component={Link} to={'/about'} /> */}
             </Tabs>
           </Grid>
         </AppBar>
