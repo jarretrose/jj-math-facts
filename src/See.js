@@ -18,28 +18,29 @@ class See extends Component {
 
   render() {
     const { classes } = this.props
+
     return (
       <Fragment>
 
         <Typography variant='h5' gutterBottom className={classes.title}>
-          See It: {this.state.category}!
+          {this.state.category}!
         </Typography>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Addition', '+')}>
-          <Typography variant="h4" className={classes.mathButton}>+</Typography></Button>
+          <Typography variant='h5'>+</Typography></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Subtraction', '-')}>
-          <Typography variant="h4" className={classes.mathButton}>-</Typography></Button>
+          <Typography variant="h5">-</Typography></Button>
 
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Multiplication', '×')}>
-          <Typography variant="h4" className={classes.mathButton}>×</Typography></Button>
+          <Typography variant="h5">×</Typography></Button>
           
         <Button variant='contained' color='secondary' className={classes.button}
           onClick={() => this.handleClick('Division', '÷')}>
-          <Typography variant="h4" className={classes.mathButton}>÷</Typography></Button>
+          <Typography variant="h5">÷</Typography></Button>
 
         <SeeWorkSpace category={this.state.category} symbol={this.state.symbol} />
 

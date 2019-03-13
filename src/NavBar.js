@@ -41,7 +41,6 @@ class NavBar extends Component {
               <Tab label='Home' value={0} className={classes.tab} component={Link} to={'/'} />
               <Tab label='See It!' value={1} className={classes.tab} component={Link} to={'/see'} />
               <Tab label='Solve It!' value={2} className={classes.tab} component={Link} to={'/solve'} />
-              {/* <Tab label='About' value={3} className={classes.tab} component={Link} to={'/about'} /> */}
             </Tabs>
           </Grid>
         </AppBar>

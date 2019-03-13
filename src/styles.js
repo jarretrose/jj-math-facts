@@ -1,8 +1,11 @@
-// const drawerWidth = 240
+// // const drawerWidth = 240
 
 const styles = theme => ({
   title: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'"
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+    [theme.breakpoints.down('xs')]: { 
+      fontSize: '6vw',
+    },
   },
   tab: {
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'"
@@ -12,7 +15,7 @@ const styles = theme => ({
     textAlign: 'center',
   },
   mainPage: {
-    margin: '5vmin',
+    margin: '5vh 5vw',
     textAlign: 'center',
   },
   footer: {
@@ -26,26 +29,37 @@ const styles = theme => ({
   },
   footBar: {
     alignItems: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+  },
+  footText: {
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+    [theme.breakpoints.down('xs')]: { 
+      fontSize: '3vw',
+    },
   },
   button: {
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-      [theme.breakpoints.down('xs')]: { 
-        marginLeft: theme.spacing.unit / 2,
-        marginRight: theme.spacing.unit / 2,
-      },
-    marginBottom: theme.spacing.unit,
-    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit * 2,
+    [theme.breakpoints.down('xs')]: { 
+      marginLeft: theme.spacing.unit / 2,
+      marginRight: theme.spacing.unit / 2,
+      marginBottom: theme.spacing.unit,
+      fontSize: '3vw'
+    },
   },
-  mathButton: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+  categoryButton: {
+    fontSize: '4vw'
   },
   card: {
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
-    fontSize: '8vmin',
-    padding: '5vmin',
+    fontSize: '6vw',
+    width: '33vw',
+    paddingBottom: '3vh',
+    [theme.breakpoints.down('xs')]: { 
+      width: '80vw',
+    },
     margin: theme.spacing.unit,
   },
   textField: {
