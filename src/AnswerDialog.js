@@ -16,7 +16,7 @@ class AnswerDialog extends Component {
     const { response, open, classes } = this.props;
 
     return (
-      <Dialog onClose={this.handleClose} open={open} aria-labelledby="answer-dialog-title" fullWidth={true}>
+      <Dialog onClose={this.handleClose} open={open} aria-labelledby="answer-dialog-title" maxWidth='lg' fullWidth={true}>
         <DialogTitle id="answer-dialog-title">
           <Typography align='center' color='primary' className={classes.dialog}>{response}</Typography>
         </DialogTitle>
