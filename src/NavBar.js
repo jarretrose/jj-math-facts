@@ -16,6 +16,18 @@ class NavBar extends Component {
 
   handleChange = (event, value) => this.setState({ value })
 
+  componentDidMount () {
+    let loc = window.location.href.split('/')[3]
+    let value = 0
+    switch(loc) {
+      case 'see': value = 1; break
+      case 'solve': value = 2; break
+      case 'about': value = 3; break
+      default: value = 0; break
+    }
+    this.setState({ value })
+  }
+
   componentDidUpdate (prevProps) {
     let loc = window.location.href.split('/')[3]
     let value = 0
