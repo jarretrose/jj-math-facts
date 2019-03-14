@@ -16,16 +16,19 @@ class NavBar extends Component {
 
   handleChange = (event, value) => this.setState({ value })
 
-  componentDidMount = () => {
+  componentDidUpdate (prevProps) {
     let loc = window.location.href.split('/')[3]
     let value = 0
 
-    if (loc === 'see') value = 1
-    else if (loc === 'solve') value = 2
-    else if (loc === 'about') value = 3
-    else value = 0
-
-    this.setState({ value })
+    if (prevProps !== this.props) {
+      switch(loc) {
+        case 'see': value = 1; break
+        case 'solve': value = 2; break
+        case 'about': value = 3; break
+        default: value = 0; break
+      }
+      this.setState({ value })
+    }
   }
 
   render() {
@@ -41,6 +44,7 @@ class NavBar extends Component {
               <Tab label='Home' value={0} className={classes.tab} component={Link} to={'/'} />
               <Tab label='See It!' value={1} className={classes.tab} component={Link} to={'/see'} />
               <Tab label='Solve It!' value={2} className={classes.tab} component={Link} to={'/solve'} />
+              {/* <Tab label='About!' value={3} className={classes.tab} component={Link} to={'/about'} /> */}
             </Tabs>
           </Grid>
         </AppBar>
