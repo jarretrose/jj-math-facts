@@ -59,10 +59,7 @@ class SeeWorkSpace extends Component {
     }
   }
 
-  handleProblemChange = (change) => {
-    const { factCategory, number2 } = this.state
-    const { category } = this.props
-
+  handleProblemChange = (factCategory, number2,category, change) => {
     const maxChange = number2 + change
 
     switch (category) {
@@ -99,16 +96,18 @@ class SeeWorkSpace extends Component {
 
         <Grid container justify='center'>
           <Grid item>
-            <Card className={classes.card}>
-              <Typography variant='h3' className={classes.title}>{problem(category, symbol, factCategory, number2)} = {solution}</Typography>
-            </Card>
+
+              <Card className={classes.card}>
+                <Typography variant='h3' className={classes.title}>{problem(category, symbol, factCategory, number2)} = {solution}</Typography>
+              </Card>
+
           </Grid>
         </Grid>
 
-        <Button className={classes.button} onClick={() => this.handleProblemChange(-1)}>
+        <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2,category, -1)}>
           <i className="material-icons">navigate_before</i>Previous Problem</Button>
 
-        <Button className={classes.button} onClick={() => this.handleProblemChange(1)}>
+        <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2,category, 1)}>
           Next Problem<i className="material-icons">navigate_next</i></Button>
 
       </Fragment>

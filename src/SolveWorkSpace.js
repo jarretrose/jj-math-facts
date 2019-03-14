@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import { problem, solve } from './utils'
+import AnswerDialog from './AnswerDialog';
 
 class SolveWorkSpace extends Component {
   constructor() {
@@ -17,14 +18,14 @@ class SolveWorkSpace extends Component {
       number2: 0,
       answer: '',
       solution: 0,
+      open: false,
+      response: ''
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { category } = this.props
-    const { factCategory, number2, answer } = this.state
-
-    console.log(this.state)
+    const { factCategory, number2 } = this.state
 
     if (prevProps.category !== category) {
       switch (category) {
@@ -64,9 +65,7 @@ class SolveWorkSpace extends Component {
     }
   }
 
-  handleProblemChange = (change) => {
-    const { factCategory, number2 } = this.state
-    const { category } = this.props
+  handleProblemChange = (factCategory, number2, category, change) => {
 
     const maxChange = number2 + change
 
@@ -94,19 +93,24 @@ class SolveWorkSpace extends Component {
 
   submitAnswer = (event) => {
     event.preventDefault()
-    this.state.answer == this.state.solution ? alert('Correct!') : alert('Try Again!')
-    this.setState({
-      answer: '',
-    })
+    this.state.answer === this.state.solution ? 
+      this.setState({ response: 'Correct!', open: true }) : 
+      this.setState({ response: 'Try Again!', open: true })
   }
+
+  handleClose = () => {
+    this.setState({ open: false, answer: '', response: '' });
+  };
 
   render() {
 
     const { classes, category, symbol } = this.props
-    const { factCategory, solution, number2 } = this.state
+    const { factCategory, number2, response } = this.state
 
     return (
       <Fragment>
+
+        <AnswerDialog open={this.state.open} onClose={this.handleClose} response={response} />
 
         <Typography variant='h5' className={classes.title}>Fact Category: {factCategory}'s</Typography>
 
@@ -145,10 +149,10 @@ class SolveWorkSpace extends Component {
           </Grid>
         </Grid>
 
-        <Button className={classes.button} onClick={() => this.handleProblemChange(-1)}>
+        <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, category, -1)}>
           <i className="material-icons">navigate_before</i>Previous Problem</Button>
 
-        <Button className={classes.button} onClick={() => this.handleProblemChange(1)}>
+        <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, category, 1)}>
           Next Problem<i className="material-icons">navigate_next</i></Button>
 
       </Fragment>

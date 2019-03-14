@@ -6,6 +6,13 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: { 
       fontSize: '6vw',
     },
+    marginBottom: theme.spacing.unit,
+  },
+  headerTitle: {
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+    [theme.breakpoints.down('xs')]: { 
+      fontSize: '6vw',
+    },
   },
   tab: {
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'"
@@ -15,7 +22,7 @@ const styles = theme => ({
     textAlign: 'center',
   },
   mainPage: {
-    margin: '5vh 5vw',
+    margin: '3vh 3vw',
     textAlign: 'center',
   },
   footer: {
@@ -56,7 +63,7 @@ const styles = theme => ({
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '6vw',
     width: '33vw',
-    paddingBottom: '3vh',
+    padding: '3vh 0',
     [theme.breakpoints.down('xs')]: { 
       width: '80vw',
     },

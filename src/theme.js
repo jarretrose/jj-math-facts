@@ -9,6 +9,10 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
   },
+  background: {
+    paper: '#fff',
+    default: "000000"
+  },
 })
 
 export default theme

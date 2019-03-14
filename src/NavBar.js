@@ -35,7 +35,7 @@ class NavBar extends Component {
     return (
       <div className={classes.navbar}>
         <AppBar position='static'>
-          <Typography variant='h5' color='secondary' className={classes.title}>JJ'S MATH FACTS</Typography>
+          <Typography variant='h5' color='secondary' className={classes.headerTitle}>JJ'S MATH FACTS</Typography>
           <Grid container justify='center'>
             <Tabs value={value} onChange={this.handleChange}>
               <Tab label='Home' value={0} className={classes.tab} component={Link} to={'/'} />
