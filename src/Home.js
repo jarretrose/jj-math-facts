@@ -11,7 +11,7 @@ const Home = (props) => {
     {
     <div className='cube-wrapper'>
       <div className='cube'>
-      <Typography component="h2" variant="h1" className={classes.cubeText} color='black'>
+      <Typography component="h2" variant="h1" className={classes.cubeText} color='default'>
         <div className='face front'>+</div>
         
         <div className='face left'>-</div>
