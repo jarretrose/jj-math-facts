@@ -84,7 +84,7 @@ const styles = theme => ({
   },
   dialog: {
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
-    fontSize: '8vw',
+    fontSize: '6vw',
     [theme.breakpoints.down('xs')]: { 
       fontSize: '6vw',
     },
