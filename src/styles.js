@@ -56,7 +56,11 @@ const styles = theme => ({
       fontSize: '3vw'
     },
   },
+  mathButton: {
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+  },
   categoryButton: {
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '4vw'
   },
   card: {
@@ -77,6 +81,14 @@ const styles = theme => ({
   fab: {
     margin: theme.spacing.unit,
     fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+  },
+  dialog: {
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+    fontSize: '8vw',
+    [theme.breakpoints.down('xs')]: { 
+      fontSize: '6vw',
+    },
+  marginBottom: theme.spacing.unit,
   },
 })
 
