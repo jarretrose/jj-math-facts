@@ -8,6 +8,7 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
+    fontFamily: '"Short Stack", "Roboto", sans-serif'
   },
   background: {
     paper: '#fff',

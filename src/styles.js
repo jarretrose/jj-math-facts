@@ -2,20 +2,17 @@
 
 const styles = theme => ({
   title: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     [theme.breakpoints.down('xs')]: { 
       fontSize: '6vw',
     },
     marginBottom: theme.spacing.unit,
   },
   headerTitle: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     [theme.breakpoints.down('xs')]: { 
       fontSize: '6vw',
     },
   },
   tab: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'"
   },
   navbar: {
     width: '100vw',
@@ -39,13 +36,11 @@ const styles = theme => ({
     textAlign: 'center',
   },
   footText: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     [theme.breakpoints.down('xs')]: { 
       fontSize: '3vw',
     },
   },
   button: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     marginBottom: theme.spacing.unit * 2,
@@ -57,14 +52,11 @@ const styles = theme => ({
     },
   },
   mathButton: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
   },
   categoryButton: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '4vw'
   },
   card: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '6vw',
     width: '33vw',
     padding: '3vh 0',
@@ -76,14 +68,11 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
   },
   fab: {
     margin: theme.spacing.unit,
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
   },
   dialog: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '6vw',
     [theme.breakpoints.down('xs')]: { 
       fontSize: '6vw',
@@ -91,7 +80,6 @@ const styles = theme => ({
   marginBottom: theme.spacing.unit,
   },
   cubeText: {
-    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
     fontSize: '200px'
   }
 })
