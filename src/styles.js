@@ -90,6 +90,10 @@ const styles = theme => ({
     },
   marginBottom: theme.spacing.unit,
   },
+  cubeText: {
+    fontFamily: "'Short Stack', 'Roboto', 'sans serif'",
+    fontSize: '200px'
+  }
 })
 
 export default styles

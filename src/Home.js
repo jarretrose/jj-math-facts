@@ -1,30 +1,33 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styles from './styles'
 import { withStyles, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 
-const Home = props => {
+const Home = (props) => {
   const { classes } = props
 
   return (
-  <Typography className={classes.title}>
-  {
-    <div class='rotating-cube'>
-      <div class='single-rb'>
-        <div class='front-face'>
-          <p>+</p>
-        </div>
-        <div class='back-face'></div>
-        <div class='left-face'></div>
-        <div class='right-face'></div>
-        <div class='top-face'></div>
-        <div class='bottom-face'></div>
+    <Fragment>
+    {
+    <div className='cube-wrapper'>
+      <div className='cube'>
+      <Typography component="h2" variant="h1" className={classes.cubeText} color='black'>
+        <div className='face front'>+</div>
+        
+        <div className='face left'>-</div>
+        
+        <div className='face back'>x</div>
+        
+        <div className='face right'>÷</div>
+        
+        <div className='face top'></div>
+        <div className='face bottom'></div>
+      </Typography>
       </div>
     </div>
-  }
-  </Typography>
+    }
+    </Fragment>
   )
-
 }
 
 Home.propTypes = {
