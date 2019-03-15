@@ -1,22 +1,28 @@
 // // const drawerWidth = 240
 
 const styles = theme => ({
-  title: {
-    [theme.breakpoints.down('xs')]: { 
-      fontSize: '6vw',
+  navbar: {
+    width: '100vw',
+  },
+  activeNav: {
+    backgroundColor: 'yellow',
+    "&:hover": {
+      backgroundColor: 'yellow'
     },
-    marginBottom: theme.spacing.unit,
+  },
+  inactiveNav: {
+    backgroundColor: 'default',
   },
   headerTitle: {
     [theme.breakpoints.down('xs')]: { 
       fontSize: '6vw',
     },
   },
-  tab: {
-  },
-  navbar: {
-    width: '100vw',
-    textAlign: 'center',
+  title: {
+    [theme.breakpoints.down('xs')]: { 
+      fontSize: '6vw',
+    },
+    marginBottom: theme.spacing.unit,
   },
   mainPage: {
     margin: '3vh 3vw',
@@ -37,7 +43,7 @@ const styles = theme => ({
   },
   footText: {
     [theme.breakpoints.down('xs')]: { 
-      fontSize: '3vw',
+      fontSize: '2.25vw',
     },
   },
   button: {

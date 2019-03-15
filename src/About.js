@@ -8,7 +8,7 @@ const About = props => {
 
   return (
   <Fragment>
-    <Typography variant='h5' gutterBottom className={classes.title}>About!</Typography>
+    <Typography gutterBottom className={classes.title}>About!</Typography>
   </Fragment>
   )
 }
