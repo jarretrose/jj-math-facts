@@ -84,9 +84,9 @@ class NavBar extends Component {
                       <Button className={isActive(2)} component={Link} to='/solve'>Solve It</Button>
                     </Grid>
 
-                    <Grid item>
+                    {/* <Grid item>
                       <Button className={isActive(3)} component={Link} to='/about'>About</Button>
-                    </Grid>
+                    </Grid> */}
                   </Hidden>
 
                   <Hidden mdUp>
@@ -110,7 +110,7 @@ class NavBar extends Component {
                     <MenuItem onClick={this.handleClose} component={Link} to='/'>Home</MenuItem>
                     <MenuItem onClick={this.handleClose} component={Link} to='/see'>See It</MenuItem>
                     <MenuItem onClick={this.handleClose} component={Link} to='/solve'>Solve It</MenuItem>
-                    <MenuItem onClick={this.handleClose} component={Link} to='/about'>About</MenuItem>
+                    {/* <MenuItem onClick={this.handleClose} component={Link} to='/about'>About</MenuItem> */}
                   </Menu>
 
                 </Grid>
