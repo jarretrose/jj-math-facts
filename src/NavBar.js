@@ -23,7 +23,7 @@ class NavBar extends Component {
     switch (loc) {
       case 'see': value = 1; break
       case 'solve': value = 2; break
-      case 'about': value = 3; break
+      case 'beta': value = 3; break
       default: value = 0; break
     }
     this.setState({ value })
@@ -37,7 +37,7 @@ class NavBar extends Component {
       switch (loc) {
         case 'see': value = 1; break
         case 'solve': value = 2; break
-        case 'about': value = 3; break
+        case 'beta': value = 3; break
         default: value = 0; break
       }
       this.setState({ value })
@@ -85,7 +85,7 @@ class NavBar extends Component {
                     </Grid>
 
                     {/* <Grid item>
-                      <Button className={isActive(3)} component={Link} to='/about'>About</Button>
+                      <Button className={isActive(3)} component={Link} to='/beta'>Beta</Button>
                     </Grid> */}
                   </Hidden>
 
@@ -110,7 +110,7 @@ class NavBar extends Component {
                     <MenuItem onClick={this.handleClose} component={Link} to='/'>Home</MenuItem>
                     <MenuItem onClick={this.handleClose} component={Link} to='/see'>See It</MenuItem>
                     <MenuItem onClick={this.handleClose} component={Link} to='/solve'>Solve It</MenuItem>
-                    {/* <MenuItem onClick={this.handleClose} component={Link} to='/about'>About</MenuItem> */}
+                    {/* <MenuItem onClick={this.handleClose} component={Link} to='/beta'>Beta</MenuItem> */}
                   </Menu>
 
                 </Grid>

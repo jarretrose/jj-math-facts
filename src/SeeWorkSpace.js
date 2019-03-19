@@ -6,10 +6,6 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
 import { problem, solve } from './utils'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 
 class SeeWorkSpace extends Component {
   constructor() {
@@ -23,11 +19,11 @@ class SeeWorkSpace extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { category } = this.props
+    const { operation } = this.props
     const { factCategory, number2 } = this.state
 
-    if (prevProps.category !== category) {
-      switch (category) {
+    if (prevProps.operation !== operation) {
+      switch (operation) {
         case 'Addition':
           return this.setState({ factCategory: 0, number2: 0, solution: 0, visible: true })
         case 'Subtraction':
@@ -41,17 +37,17 @@ class SeeWorkSpace extends Component {
       }
     }
     if (prevState.number2 !== number2 || prevState.factCategory !== factCategory) {
-      this.setState({ solution: solve(factCategory, number2, category) })
+      this.setState({ solution: solve(factCategory, number2, operation) })
     }
   }
 
-  handleFactCat = (factCategory, category, change) => {
+  handleFactCat = (factCategory, operation, change) => {
 
     const targetNumber = factCategory + change
 
     if (targetNumber > 10 || targetNumber < 0) return null
 
-    switch (category) {
+    switch (operation) {
       case 'Subtraction':
       case 'Division':
         return this.setState({ factCategory: targetNumber, number2: targetNumber })
@@ -64,10 +60,10 @@ class SeeWorkSpace extends Component {
     }
   }
 
-  handleProblemChange = (factCategory, number2, category, change) => {
+  handleProblemChange = (factCategory, number2, operation, change) => {
     const maxChange = number2 + change
 
-    switch (category) {
+    switch (operation) {
       case 'Addition':
       case 'Multiplication':
         if (maxChange > 9 || maxChange < 0) return null
@@ -85,7 +81,7 @@ class SeeWorkSpace extends Component {
 
   render() {
 
-    const { classes, category, symbol } = this.props
+    const { classes, operation, symbol } = this.props
     const { factCategory, solution, number2, visible } = this.state
 
     return (
@@ -94,122 +90,17 @@ class SeeWorkSpace extends Component {
 
         <Fragment>
 
-          {/* // ********** */}
+          {/* // ********** CHOOSE A CATEGORY ********** */}
 
           <Typography variant='h5' className={classes.title}>Fact Category: {factCategory}'s</Typography>
 
-          {/* <FormGroup row>
-            <Grid container justify='center'>
+          {/* // ********** NAVIGATE FACTS ********** */}
+          
 
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='0'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='1'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='2'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='3'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='4'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='5'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='6'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='7'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='8'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='9'
-                labelPlacement='top'
-              />
-              </Grid>
-
-              <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox color='default' />}
-                label='10'
-                labelPlacement='top'
-              />
-              </Grid>
-
-            </Grid>
-          </FormGroup> */}
-
-          {/* // ********** */}
-
-
-          <Button className={classes.button} onClick={() => this.handleFactCat(factCategory, category, -1)}>
+          <Button className={classes.button} onClick={() => this.handleFactCat(factCategory, operation, -1)}>
             <i className="material-icons">navigate_before</i>Previous Fact</Button>
 
-          <Button className={classes.button} onClick={() => this.handleFactCat(factCategory, category, 1)}>
+          <Button className={classes.button} onClick={() => this.handleFactCat(factCategory, operation, 1)}>
             Next Fact<i className="material-icons">navigate_next</i></Button>
 
           {/* // ********** */}
@@ -217,15 +108,15 @@ class SeeWorkSpace extends Component {
           <Grid container justify='center'>
             <Grid item>
               <Card className={classes.card}>
-                <Typography variant='h3' className={classes.title}>{problem(category, symbol, factCategory, number2)} = {solution}</Typography>
+                <Typography variant='h3' className={classes.title}>{problem(operation, symbol, factCategory, number2)} = {solution}</Typography>
               </Card>
             </Grid>
           </Grid>
 
-          <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, category, -1)}>
+          <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, operation, -1)}>
             <i className="material-icons">navigate_before</i>Previous Problem</Button>
 
-          <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, category, 1)}>
+          <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, operation, 1)}>
             Next Problem<i className="material-icons">navigate_next</i></Button>
 
           {/* // ********** */}

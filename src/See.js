@@ -9,21 +9,22 @@ class See extends Component {
   constructor() {
     super()
     this.state = {
-      category: 'Choose An Operation',
+      operation: 'Choose An Operation',
       symbol: '?'
     }
   }
 
-  handleClick = (category, symbol) => this.setState({ category, symbol })
+  handleClick = (operation, symbol) => this.setState({ operation, symbol })
 
   render() {
     const { classes } = this.props
+    const { operation, symbol } = this.state
 
     return (
       <Fragment>
 
         <Typography variant='h5' gutterBottom className={classes.title}>
-          {this.state.category}!
+          {operation}!
         </Typography>
 
         <Button variant='contained' color='secondary' className={classes.button}
@@ -42,7 +43,7 @@ class See extends Component {
           onClick={() => this.handleClick('Division', '÷')}>
           <Typography variant="h5" className={classes.mathButton}>÷</Typography></Button>
 
-        <SeeWorkSpace category={this.state.category} symbol={this.state.symbol} />
+        <SeeWorkSpace operation={operation} symbol={symbol} />
 
       </Fragment>
     )

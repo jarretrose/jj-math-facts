@@ -1,6 +1,12 @@
 // // const drawerWidth = 240
 
 const styles = theme => ({
+  dividers: {
+    margin: theme.spacing.unit * 2,
+  },
+  progress: {
+    margin: theme.spacing.unit * 2,
+  },
   navbar: {
     width: '100vw',
   },

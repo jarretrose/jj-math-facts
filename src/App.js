@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import styles from './styles'
 import { withStyles } from '@material-ui/core'
 import PropTypes from 'prop-types'
@@ -10,6 +10,7 @@ import Home from './Home'
 import See from './See'
 import Solve from './Solve'
 import About from './About'
+import SeeOrSolve from './SeeOrSolve';
 
 class App extends Component {
 
@@ -26,10 +27,13 @@ class App extends Component {
 
         {/* MAIN PAGE */}
         <section className={classes.mainPage}>
-          <Route exact path='/' component={Home} />
-          <Route path='/see' component={See} />
-          <Route path='/solve' component={Solve} />
-          <Route path='/about' component={About} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/see' component={See} />
+            <Route path='/solve' component={Solve} />
+            <Route path='/about' component={About} />
+            <Route path='/beta' component={SeeOrSolve} />
+          </Switch>
         </section>
 
         {/* FOOTER */}
