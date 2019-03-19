@@ -96,7 +96,7 @@ class SeeWorkSpace extends Component {
 
           {/* // ********** */}
 
-          <Typography variant='h5' className={classes.title}>Fact Category:</Typography>
+          <Typography variant='h5' className={classes.title}>Fact Category: {factCategory}'s</Typography>
 
           {/* <FormGroup row>
             <Grid container justify='center'>
