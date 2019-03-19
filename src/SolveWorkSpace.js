@@ -19,7 +19,8 @@ class SolveWorkSpace extends Component {
       answer: '',
       solution: 0,
       open: false,
-      response: ''
+      response: '',
+      visible: false,
     }
   }
 
@@ -30,13 +31,13 @@ class SolveWorkSpace extends Component {
     if (prevProps.category !== category) {
       switch (category) {
         case 'Addition':
-          return this.setState({ factCategory: 0, number2: 0, solution: 0 })
+        return this.setState({ factCategory: 0, number2: 0, solution: 0, visible: true })
         case 'Subtraction':
-          return this.setState({ factCategory: 0, number2: 0, solution: 0 })
+          return this.setState({ factCategory: 0, number2: 0, solution: 0, visible: true })
         case 'Multiplication':
-          return this.setState({ factCategory: 0, number2: 0, solution: 0 })
+          return this.setState({ factCategory: 0, number2: 0, solution: 0, visible: true })
         case 'Division':
-          return this.setState({ factCategory: 1, number2: 1, solution: 1 })
+          return this.setState({ factCategory: 1, number2: 1, solution: 1, visible: true })
         default:
           return this.setState({ factCategory: 0, number2: 0, solution: '?' })
       }
@@ -105,12 +106,19 @@ class SolveWorkSpace extends Component {
   render() {
 
     const { classes, category, symbol } = this.props
-    const { factCategory, number2, response } = this.state
+    const { factCategory, number2, response, visible } = this.state
 
     return (
+
+      !visible ? null :
+
       <Fragment>
 
+{/* // ********** */}
+
         <AnswerDialog open={this.state.open} onClose={this.handleClose} response={response} />
+
+{/* // ********** */}
 
         <Typography variant='h5' className={classes.title}>Fact Category: {factCategory}'s</Typography>
 
@@ -120,6 +128,8 @@ class SolveWorkSpace extends Component {
         <Button className={classes.button} onClick={() => this.handleFactCat(factCategory, category, 1)}>
           Next Fact<i className="material-icons">navigate_next</i>
         </Button>
+
+{/* // ********** */}
 
         <Grid container justify='center'>
           <Grid item>
@@ -154,6 +164,8 @@ class SolveWorkSpace extends Component {
 
         <Button className={classes.button} onClick={() => this.handleProblemChange(factCategory, number2, category, 1)}>
           Next Problem<i className="material-icons">navigate_next</i></Button>
+
+{/* // ********** */}
 
       </Fragment>
     )

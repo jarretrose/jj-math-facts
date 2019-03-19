@@ -59,6 +59,11 @@ const styles = theme => ({
   },
   mathButton: {
   },
+  reset: {
+    "&:hover": {
+      backgroundColor: 'transparent'
+    },
+  },
   categoryButton: {
     fontSize: '4vw'
   },

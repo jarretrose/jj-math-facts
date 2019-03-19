@@ -9,7 +9,7 @@ class See extends Component {
   constructor() {
     super()
     this.state = {
-      category: 'Choose A Category',
+      category: 'Choose An Operation',
       symbol: '?'
     }
   }
