@@ -1,48 +1,51 @@
 import React, { Component, Fragment } from 'react'
 import styles from './styles'
 import { withStyles, Typography } from '@material-ui/core'
-import { problemBeta, solveBeta } from './utils'
+import { problemBeta, solveBeta, generateKey } from './utils'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
+import Fade from '@material-ui/core/Fade';
+import PropTypes from 'prop-types'
 
 class Problem extends Component {
 
   render() {
-    const { operation, fact, speed, number2 } = this.props
+    const { operation, fact, speed, number2, classes } = this.props
     const nums = [0,1,2,3,4,5,6,7,8,9]
     let nums2 = []
+    let problems = []
 
     operation !== 'Division' ? 
-      nums2 = nums.map(num => num + number2) :
+      nums2 = nums.map(num => num + number2) : 
       nums2 = nums.map(num => num * number2)
 
-    console.log(nums2)
-
-    const expression = (operation, fact, n) => `${problemBeta(operation, fact, n)} = ${solveBeta(operation, fact, n)}`
+    const expression = (operation, fact, n) => 
+      `${problemBeta(operation, fact, n)} = ${solveBeta(operation, fact, n)}`
     
+    nums2.map(num => problems.push(expression(operation, fact, num)))
+
     return (
       <Fragment>
         <Grid container
           direction="column"
           alignItems="center"
           justify="center">
-        <List>
-          <Typography>
+        <List disablePadding={true} dense={true}>
           {
-            nums2.map(num => (
-              <ListItem key={num}>
-              {expression(operation, fact, num)}
-              </ListItem>
+            problems.map((prob, idx) => (
+              <Fade in style={{ transitionDelay: `${speed * idx}ms`}} key={generateKey(prob)}><ListItem className={classes.listitems}>{prob}</ListItem></Fade>
             ))
           }
-          </Typography>
         </List>
         </Grid>
-
       </Fragment>
     )
   }
+}
+
+Problem.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(Problem)

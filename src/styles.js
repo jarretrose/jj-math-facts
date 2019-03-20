@@ -2,7 +2,14 @@
 
 const styles = theme => ({
   dividers: {
-    margin: theme.spacing.unit * 2,
+    margin: 0,
+  },
+  listitems: {
+    fontFamily: '"Short Stack", "Roboto", sans-serif',
+    fontSize: '4vh',
+    [theme.breakpoints.down('xs')]: { 
+      fontSize: '3vh',
+    },
   },
   progress: {
     margin: theme.spacing.unit * 2,

@@ -55,3 +55,7 @@ export const solveBeta = (operation, fact, number2) => {
     default: return '?'
   }
 }
+
+export const generateKey = (pre) => {
+  return `${ pre }_${ new Date().getTime() }`;
+}

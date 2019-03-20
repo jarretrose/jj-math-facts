@@ -10,7 +10,7 @@ import Problem from './Problem'
 import Divider from '@material-ui/core/Divider';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-class SeeOrSolve extends Component {
+class SeeIt extends Component {
   constructor() {
     super()
     this.state = {
@@ -19,6 +19,10 @@ class SeeOrSolve extends Component {
       number2: '',
       speed: '',
     }
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.speed)
   }
 
   handleOperation = (o) => this.setState({ operation: o })
@@ -36,7 +40,7 @@ class SeeOrSolve extends Component {
     else if (fact === '') return <Fact handleFact={this.handleFact} operation={operation}/>
     else if (speed === '') return <Speed handleSpeed={this.handleSpeed} />
     else return <Button onClick={() => this.handleReset()}>
-        <Typography variant='h5'>reset all options</Typography>
+        <Typography variant='button'>reset all options</Typography>
       </Button>
   }
 
@@ -67,8 +71,8 @@ class SeeOrSolve extends Component {
   }
 }
 
-SeeOrSolve.propTypes = {
+SeeIt.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(SeeOrSolve)
+export default withStyles(styles)(SeeIt)

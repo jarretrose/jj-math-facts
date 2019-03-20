@@ -10,10 +10,10 @@ class Speed extends Component {
     return (
       <Fragment>
         <Typography variant='h5'>Choose Viewing Speed</Typography>
-        <Button onClick={() => handleSpeed('slow')}>Slow</Button>
-        <Button onClick={() => handleSpeed('medium')}>Medium</Button>
-        <Button onClick={() => handleSpeed('fast')}>Fast</Button>
-        <Button onClick={() => handleSpeed('extraFast')}>Extra Fast</Button>
+        <Button onClick={() => handleSpeed(3000)}>Slow</Button>
+        <Button onClick={() => handleSpeed(2000)}>Medium</Button>
+        <Button onClick={() => handleSpeed(1000)}>Fast</Button>
+        <Button onClick={() => handleSpeed(750)}>Extra Fast</Button>
       </Fragment>
     )
   }

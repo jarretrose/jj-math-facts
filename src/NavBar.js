@@ -23,7 +23,7 @@ class NavBar extends Component {
     switch (loc) {
       case 'see': value = 1; break
       case 'solve': value = 2; break
-      case 'beta': value = 3; break
+      // case 'beta': value = 3; break
       default: value = 0; break
     }
     this.setState({ value })
@@ -37,7 +37,7 @@ class NavBar extends Component {
       switch (loc) {
         case 'see': value = 1; break
         case 'solve': value = 2; break
-        case 'beta': value = 3; break
+        // case 'beta': value = 3; break
         default: value = 0; break
       }
       this.setState({ value })
