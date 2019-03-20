@@ -6,7 +6,7 @@ import { withStyles, Typography } from '@material-ui/core'
 class Fact extends Component {
   render() {
 
-    const { handleFact, operation } = this.props
+    const { handleFact } = this.props
     let facts = [1,2,3,4,5,6,7,8,9,10]
 
     return (

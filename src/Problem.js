@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import styles from './styles'
-import { withStyles, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core'
 import { problemBeta, solveBeta, generateKey } from './utils'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
