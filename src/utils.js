@@ -27,6 +27,7 @@ export const solve = (num1, num2, category) => {
   }
 }
 
+// ***** eventually use only these below ***** 
 export const problemBeta = (operation, fact, number2) => {
   switch (operation) {
     case 'Subtraction':

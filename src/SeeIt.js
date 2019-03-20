@@ -21,10 +21,6 @@ class SeeIt extends Component {
     }
   }
 
-  componentDidUpdate() {
-    console.log(this.state.speed)
-  }
-
   handleOperation = (o) => this.setState({ operation: o })
   handleFact = (f) => this.setState({ fact: f })
   handleSpeed = (s) => this.setState({ speed: s })
