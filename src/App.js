@@ -10,6 +10,7 @@ import Home from './Home'
 import SeeIt from './SeeIt'
 import Solve from './Solve'
 import About from './About'
+import SolveIt from './SolveIt'
 
 class App extends Component {
 
@@ -31,7 +32,7 @@ class App extends Component {
             <Route path='/see' component={SeeIt} />
             <Route path='/solve' component={Solve} />
             <Route path='/about' component={About} />
-            {/* <Route path='/beta' component={SeeOrSolve} /> */}
+            <Route path='/beta' component={SolveIt} />
           </Switch>
         </section>
 

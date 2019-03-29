@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import PropTypes from 'prop-types'
 
-class Problem extends Component {
+class SeeProblem extends Component {
 
   render() {
     const { operation, fact, speed, number2, classes } = this.props
@@ -44,8 +44,8 @@ class Problem extends Component {
   }
 }
 
-Problem.propTypes = {
+SeeProblem.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Problem)
+export default withStyles(styles)(SeeProblem)

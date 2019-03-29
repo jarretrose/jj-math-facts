@@ -5,36 +5,31 @@ import { withStyles, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import Operation from './Operation'
 import Fact from './Fact'
-import Speed from './Speed'
-import SeeProblem from './SeeProblem'
+import SolveProblem from './SolveProblem'
 import Divider from '@material-ui/core/Divider';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-class SeeIt extends Component {
+class SolveIt extends Component {
   constructor() {
     super()
     this.state = {
       operation: '',
       fact: '',
       number2: '',
-      speed: '',
     }
   }
 
   handleOperation = (o) => this.setState({ operation: o })
   handleFact = (f) => this.setState({ fact: f })
-  handleSpeed = (s) => this.setState({ speed: s })
   handleReset = () => this.setState({
     operation: '',
     fact: '',
-    speed: '',
     number2: ''
    })
 
-  view = (operation, fact, speed) => {
+  view = (operation, fact) => {
     if (operation === '') return <Operation handleOperation={this.handleOperation} />
     else if (fact === '') return <Fact handleFact={this.handleFact} operation={operation}/>
-    else if (speed === '') return <Speed handleSpeed={this.handleSpeed} />
     else return <Button onClick={() => this.handleReset()}>
         <Typography variant='button'>reset all options</Typography>
       </Button>
@@ -45,30 +40,30 @@ class SeeIt extends Component {
     else return 0
   }
 
-  viewProblem = (operation, fact, speed) => {
+  viewProblem = (operation, fact) => {
     const { classes } = this.props
     let number = this.num2(operation, fact)
 
-    if (operation && fact && speed) return <SeeProblem operation={operation} fact={fact} speed={speed} number2={number} />
+    if (operation && fact) return <SolveProblem operation={operation} fact={fact} number2={number} />
 
     else return <CircularProgress className={classes.progress}/>
   }
 
   render() {
-    const { operation, fact, speed, number2 } = this.state
+    const { operation, fact, number2 } = this.state
     const { classes } = this.props
     return (
       <Fragment>
-        {this.view(operation, fact, speed)}
+        {this.view(operation, fact )}
         <Divider variant='inset' className={classes.dividers} />
-        {this.viewProblem(operation, fact, speed, number2)}
+        {this.viewProblem(operation, fact, number2)}
       </Fragment>
     )
   }
 }
 
-SeeIt.propTypes = {
+SolveIt.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(SeeIt)
+export default withStyles(styles)(SolveIt)

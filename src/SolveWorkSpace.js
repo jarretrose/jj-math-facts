@@ -92,6 +92,7 @@ class SolveWorkSpace extends Component {
     });
   };
 
+
   submitAnswer = (event) => {
     event.preventDefault()
     this.state.answer === this.state.solution ? 
@@ -100,7 +101,9 @@ class SolveWorkSpace extends Component {
   }
 
   handleClose = () => {
-    this.setState({ open: false, answer: '', response: '' });
+    this.state.response === 'Correct!' ? 
+    this.setState({ open: false, answer: '', response: '' }) :
+    this.setState({ open: false })
   };
 
   render() {
