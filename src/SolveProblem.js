@@ -1,52 +1,41 @@
 import React, { Component, Fragment } from 'react'
 import styles from './styles'
 import { withStyles, Typography } from '@material-ui/core'
-import { problemBeta, solveBeta, generateKey } from './utils'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Grid from '@material-ui/core/Grid';
-import Fade from '@material-ui/core/Fade';
+import { problemBeta, solveBeta } from './utils'
 import PropTypes from 'prop-types'
 import AnswerDialog from './AnswerDialog'
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 
+
 class SolveProblem extends Component {
   constructor() {
     super()
     this.state = {
-      operation: '',
-      fact: '',
-      number2: '',
-      answer: '',
-      response: '',
-      open: false,
-      solution: '',
-      problem: '',
+      response: '', // right or wrong response
+      answer: '', // user's entered answer
+      open: false, // whether or not the answer dialog is open
+      iterator: 0, // the iterator for the problem and answer array
+      problems: [], // the current problem set
+      solutions: [] // the solutions to the current problem set
     }
   }
-// operation, fact, number2
-  componentDidUpdate(prevProps, prevState) {
-    const { operation } = this.props
-    const { fact, number2 } = this.state
 
-    if (prevProps.operation !== operation) {
-      switch (operation) {
-        case 'Addition':
-        return this.setState({ fact: 0, number2: 0, solution: 0, visible: true })
-        case 'Subtraction':
-          return this.setState({ fact: 0, number2: 0, solution: 0, visible: true })
-        case 'Multiplication':
-          return this.setState({ fact: 0, number2: 0, solution: 0, visible: true })
-        case 'Division':
-          return this.setState({ fact: 1, number2: 1, solution: 1, visible: true })
-        default:
-          return this.setState({ fact: 0, number2: 0, solution: '?' })
-      }
-    }
-    if (prevState.number2 !== number2 || prevState.fact !== fact) {
-      this.setState({ solution: solveBeta(operation, fact, number2) })
-    }
+  componentDidMount () {
+    const { operation, fact, number2 } = this.props
+    const nums = [1,2,3,4,5,6,7,8,9]
+    let nums2 = []
+    let problems = []
+    let solutions = []
+
+    operation !== 'Division' ? 
+      nums2 = nums.map(num => num + number2) : 
+      nums2 = nums.map(num => num * number2)
+
+    nums2.map(num => problems.push(problemBeta(operation, fact, num)))
+    nums2.map(num => solutions.push(solveBeta(operation, fact, num)))
+
+    return this.setState({ problems: problems, solutions: solutions})
   }
 
   handleChange = () => event => {
@@ -58,38 +47,38 @@ class SolveProblem extends Component {
 
   submitAnswer = (event) => {
     event.preventDefault()
-    parseInt(this.state.answer) === parseInt(this.state.solution) ? 
+    const { answer, solutions, iterator } = this.state
+
+    parseInt(answer) === parseInt(solutions[iterator]) ?
       this.setState({ response: 'Correct!', open: true }) : 
       this.setState({ response: 'Try Again!', open: true })
   }
 
   handleClose = () => {
-    this.state.response === 'Correct!' ? 
-    this.setState({ open: false, answer: '', response: '' }) :
-    this.setState({ open: false })
+    const { iterator } = this.state
+    this.setState({ open: false, answer: '', response: '', iterator: iterator+1 })
   };
 
   render() {
-    const { operation, fact, number2, classes } = this.props
-    const { response } = this.state
-
+    const { classes } = this.props
+    const { response, answer, iterator, problems } = this.state
     
-    console.log('RENDERING ', this.state)
-    return (
+    console.log(this.state)
 
+    return (
       <Fragment>
 
         <AnswerDialog open={this.state.open} onClose={this.handleClose} response={response} />
 
         <Typography className={classes.listitems}>
-          
-          </Typography>
+          {problems[iterator]} = {this.state.answer}
+        </Typography>
         <form onSubmit={this.submitAnswer}>
           <TextField
             id="outlined-number"
             name='answer'
-            label="Answer"
-            value={this.state.answer}
+            label="answer"
+            value={answer}
             onChange={this.handleChange()}
             type="number"
             placeholder='0'
