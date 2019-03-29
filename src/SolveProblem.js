@@ -21,21 +21,21 @@ class SolveProblem extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { operation, fact, number2 } = this.props
-    const nums = [1,2,3,4,5,6,7,8,9]
+    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     let nums2 = []
     let problems = []
     let solutions = []
 
-    operation !== 'Division' ? 
-      nums2 = nums.map(num => num + number2) : 
+    operation !== 'Division' ?
+      nums2 = nums.map(num => num + number2) :
       nums2 = nums.map(num => num * number2)
 
     nums2.map(num => problems.push(problemBeta(operation, fact, num)))
     nums2.map(num => solutions.push(solveBeta(operation, fact, num)))
 
-    return this.setState({ problems: problems, solutions: solutions})
+    return this.setState({ problems: problems, solutions: solutions })
   }
 
   handleChange = () => event => {
@@ -50,14 +50,14 @@ class SolveProblem extends Component {
     const { answer, solutions, iterator } = this.state
 
     parseInt(answer) === parseInt(solutions[iterator]) ?
-      this.setState({ response: 'Correct!', open: true }) : 
+      this.setState({ response: 'Correct!', open: true }) :
       this.setState({ response: 'Try Again!', open: true })
   }
 
   handleClose = () => {
     const { response, iterator } = this.state
-    response === 'Correct!' ? 
-      this.setState({ open: false, answer: '', response: '', iterator: iterator+1 })
+    response === 'Correct!' ?
+      this.setState({ open: false, answer: '', response: '', iterator: iterator + 1 })
       :
       this.setState({ open: false, answer: '', response: '' })
   };
@@ -67,32 +67,42 @@ class SolveProblem extends Component {
     const { response, answer, iterator, problems } = this.state
 
     return (
-      <Fragment>
 
-        <AnswerDialog open={this.state.open} onClose={this.handleClose} response={response} />
+      // check to see if there are any numbers left to work with
+      iterator >= 9 ?
+        <Fragment>
+          <Typography className={classes.listitems}>Great Job!</Typography>
+          <Typography className={classes.listitems}>Click Reset To Choose New Options!</Typography>
+        </Fragment>
 
-        <Typography className={classes.listitems}>
-          {problems[iterator]} = {this.state.answer}
-        </Typography>
-        <form onSubmit={this.submitAnswer}>
-          <TextField
-            id="outlined-number"
-            name='answer'
-            label="answer"
-            value={answer}
-            onChange={this.handleChange()}
-            type="number"
-            placeholder='0'
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            margin="normal"
-            variant="outlined"
-          />
-          <Fab variant='extended' color='secondary' type='submit' aria-label='Submit' className={classes.fab}>Submit</Fab>
-        </form>
-      </Fragment>
+        :
+
+        <Fragment>
+
+          <AnswerDialog open={this.state.open} onClose={this.handleClose} response={response} />
+
+          <Typography className={classes.listitems}>
+            {problems[iterator]} = {this.state.answer}
+          </Typography>
+          <form onSubmit={this.submitAnswer}>
+            <TextField
+              id="outlined-number"
+              name='answer'
+              label="answer"
+              value={answer}
+              onChange={this.handleChange()}
+              type="number"
+              placeholder='0'
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              margin="normal"
+              variant="outlined"
+            />
+            <Fab variant='extended' color='secondary' type='submit' aria-label='Submit' className={classes.fab}>Submit</Fab>
+          </form>
+        </Fragment>
     )
   }
 }
