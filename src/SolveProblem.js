@@ -12,12 +12,12 @@ class SolveProblem extends Component {
   constructor() {
     super()
     this.state = {
-      response: '', // right or wrong response
-      answer: '', // user's entered answer
-      open: false, // whether or not the answer dialog is open
-      iterator: 0, // the iterator for the problem and answer array
       problems: [], // the current problem set
-      solutions: [] // the solutions to the current problem set
+      solutions: [], // the solutions to the current problem set
+      iterator: 0, // the iterator for the problem and answer array
+      answer: '', // user's entered answer
+      response: '', // right or wrong via response modal
+      open: false, // whether or not the answer dialog is open
     }
   }
 
@@ -55,15 +55,16 @@ class SolveProblem extends Component {
   }
 
   handleClose = () => {
-    const { iterator } = this.state
-    this.setState({ open: false, answer: '', response: '', iterator: iterator+1 })
+    const { response, iterator } = this.state
+    response === 'Correct!' ? 
+      this.setState({ open: false, answer: '', response: '', iterator: iterator+1 })
+      :
+      this.setState({ open: false, answer: '', response: '' })
   };
 
   render() {
     const { classes } = this.props
     const { response, answer, iterator, problems } = this.state
-    
-    console.log(this.state)
 
     return (
       <Fragment>

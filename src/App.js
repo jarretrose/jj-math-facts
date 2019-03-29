@@ -8,9 +8,8 @@ import NavBar from './NavBar'
 import Footer from './Footer'
 import Home from './Home'
 import SeeIt from './SeeIt'
-import Solve from './Solve'
-import About from './About'
 import SolveIt from './SolveIt'
+// import About from './About'
 
 class App extends Component {
 
@@ -30,9 +29,9 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/see' component={SeeIt} />
-            <Route path='/solve' component={Solve} />
-            <Route path='/about' component={About} />
-            <Route path='/beta' component={SolveIt} />
+            <Route path='/solve' component={SolveIt} />
+            {/* <Route path='/about' component={About} /> */}
+            {/* <Route path='/beta' component={} /> */}
           </Switch>
         </section>
 

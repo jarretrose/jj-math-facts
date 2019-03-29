@@ -12,13 +12,21 @@ class AnswerDialog extends Component {
     this.props.onClose();
   };
 
+  keyPress = (event) => {
+    if (event.key === 'Enter' || 13) this.handleClose()
+  }
+
   render() {
     const { response, open, classes } = this.props;
 
     return (
-      <Dialog onClose={this.handleClose} open={open} aria-labelledby="answer-dialog-title" maxWidth='lg' fullWidth={true}>
+      
+      <Dialog onClose={this.handleClose} onKeyPress={this.keyPress} open={open} aria-labelledby="answer-dialog-title" maxWidth='lg' fullWidth={true}>
         <DialogTitle id="answer-dialog-title">
           <Typography align='center' color='primary' className={classes.dialog}>{response}</Typography>
+          <Typography align='right' onClick={this.handleClose}>
+            <i className="material-icons">close</i>
+          </Typography>
         </DialogTitle>
       </Dialog>
     );
