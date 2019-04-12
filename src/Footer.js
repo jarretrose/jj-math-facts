@@ -18,6 +18,8 @@ const Footer = props => {
             A simple app for practicing math facts.
             <br />
             Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a>
+            <br />
+            Built by Jarret Rose: <a href="mailto:jarretrose@gmail.com" target="_top">jarretrose@gmail.com</a>
           </Typography>
         </Toolbar>
       </AppBar>
